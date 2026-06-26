@@ -514,6 +514,14 @@ footer strong{color:var(--orange)}
             <span class="ob-mat-icon">🧱</span>
             <div><div class="ob-mat-name">Mur</div><div class="ob-mat-hint">Pour HSPU & handstand</div></div>
           </div>
+          <div class="ob-mat-card" data-v="kettlebell" onclick="obMat(this)">
+            <span class="ob-mat-icon">🔔</span>
+            <div><div class="ob-mat-name">Kettlebell</div><div class="ob-mat-hint">Simple ou paire</div></div>
+          </div>
+          <div class="ob-mat-card" data-v="ghd" onclick="obMat(this)">
+            <span class="ob-mat-icon">🦵</span>
+            <div><div class="ob-mat-name">GHD / Nordic Curl</div><div class="ob-mat-hint">Ou partenaire</div></div>
+          </div>
         </div>
       </div>
 
@@ -2600,15 +2608,15 @@ document.addEventListener('DOMContentLoaded',()=>{
   };
 
   var OB_MAT = {
-    'bs': ['barre-disques','rack','banc'],
-    'dl': ['barre-disques','banc','halteres'],
-    'fs': ['barre-disques','rack'],
-    'os': ['barre-disques'],
-    'h':  ['corps','mur','banc'],
-    'pu': ['barre-traction','elastiques'],
-    'pp': ['corps','banc'],
-    'ft': ['barre-traction','elastiques','halteres','banc'],
-    're': ['halteres','elastiques','corps']
+    'bs': ['barre-disques','rack','banc','halteres','elastiques','kettlebell','ghd'],
+    'dl': ['barre-disques','halteres','elastiques','kettlebell','ghd'],
+    'fs': ['barre-disques','rack','halteres','elastiques','kettlebell'],
+    'os': ['barre-disques','halteres','elastiques','kettlebell'],
+    'h':  ['corps','mur','banc','halteres','elastiques'],
+    'pu': ['barre-traction','halteres','elastiques','kettlebell'],
+    'pp': ['corps','banc','halteres','elastiques'],
+    'ft': ['barre-traction','elastiques','halteres','banc','kettlebell'],
+    're': ['halteres','elastiques','corps','banc']
   };
 
   var OB_MAT_LABELS = {
