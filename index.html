@@ -451,6 +451,11 @@ footer strong{color:var(--orange)}
             <span class="ob-card-title">Réhab Épaule</span>
             <span class="ob-card-sub">Récupération & renforcement</span>
           </div>
+          <div class="ob-card" data-v="sp" onclick="obCard(this,'prog')">
+            <span class="ob-card-icon">🏹</span>
+            <span class="ob-card-title">Strict Press</span>
+            <span class="ob-card-sub">Presse stricte à la barre — 12 sem.</span>
+          </div>
         </div>
       </div>
 
@@ -581,6 +586,7 @@ footer strong{color:var(--orange)}
     <button class="tab-btn" onclick="showTab('pp')">💥 Push-ups</button>
     <button class="tab-btn" onclick="showTab('ft')">🎯 1ère Traction</button>
     <button class="tab-btn" onclick="showTab('re')">🩹 Réhab Épaule</button>
+    <button class="tab-btn" onclick="showTab('sp')">🏹 Strict Press</button>
     <button class="tab-btn" onclick="showTab('rm')">📊 Calculateur 1RM</button>
   </div>
 
@@ -1870,6 +1876,158 @@ footer strong{color:var(--orange)}
   <!-- ═══════════════════════════════════════════
        PANEL 1RM
   ═══════════════════════════════════════════ -->
+
+  <!-- ═══════════════════════════════════════════
+       PANEL STRICT PRESS
+  ═══════════════════════════════════════════ -->
+  <div id="panel-sp" class="prog-panel">
+    <button class="launch-btn" onclick="openSessionPicker('panel-sp')">
+      <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      DÉMARRER UNE SÉANCE
+    </button>
+    <div class="meta-row">
+      <div class="meta-pill"><span class="mp-label">Durée</span><span class="mp-val">12 semaines</span></div>
+      <div class="meta-pill"><span class="mp-label">Niveau</span><span class="mp-val">Débutant → Intermédiaire</span></div>
+      <div class="meta-pill"><span class="mp-label">Fréquence</span><span class="mp-val">2×/semaine</span></div>
+      <div class="meta-pill"><span class="mp-label">Objectif</span><span class="mp-val">Force overhead</span></div>
+    </div>
+    <div class="duration-toggle">
+      <button class="dur-btn active" onclick="setModeInPanel(15,this,'panel-sp')">15 MIN<span class="dur-label">essentiel</span></button>
+      <button class="dur-btn" onclick="setModeInPanel(20,this,'panel-sp')">20 MIN<span class="dur-label">+ accessoires</span></button>
+      <button class="dur-btn" onclick="setModeInPanel(60,this,'panel-sp')">1 HEURE<span class="dur-label">+ stabilisateurs</span></button>
+    </div>
+    <div class="freq-toggle">
+      <button class="freq-btn active" onclick="setFreqInPanel(2,this,'panel-sp')">2×/SEM<span class="freq-label">2 séances</span></button>
+      <button class="freq-btn" onclick="setFreqInPanel(3,this,'panel-sp')">3×/SEM<span class="freq-label">3 séances</span></button>
+    </div>
+    <div class="plan-info f2 only-2x"><span class="pi-title">Planification 2×/semaine</span>Semaine type : <span class="pi-day">Lundi — Séance A</span> · <span class="pi-day">Vendredi — Séance B</span><span class="pi-note">Le Strict Press sollicite fortement les deltoïdes et les triceps — laisser au moins 72h entre les deux séances.</span></div>
+    <div class="plan-info f3 only-3x"><span class="pi-title">Planification 3×/semaine</span>S1 : <span class="pi-day">Lun A · Mer B · Sam A</span> — S2 : <span class="pi-day">Lun B · Mer A · Sam B</span><span class="pi-note">La 3e séance se fait à <strong>~80% des volumes</strong>. Prioriser la qualité technique sur la quantité de séries.</span></div>
+    <div class="prereq"><h3>Prérequis</h3><div class="prereq-list"><span class="prereq-item">Pas de douleur active à l'épaule</span><span class="prereq-item">Peut presser la barre vide sans compensation lombaire</span><span class="prereq-item">Poignets stables en position de rack</span><span class="prereq-item">Gainage de base (planche 30s)</span></div></div>
+    <div class="prep-info">⏱ <strong>Préparation estimée : 2–3 min</strong> — barre vide, mobilité épaules + poignets, activation deltoïdes. Commencer toujours par 2–3 séries légères avant de mettre la charge de travail.<br>
+    Temps de travail effectif : <span class="eff">~12 min en mode 15 min</span> · <span class="eff">~17 min en mode 20 min</span><br>
+    Les % sont relatifs au 1RM Strict Press. Contrôler la lordose lombaire à chaque série — le point faible technique le plus fréquent.</div>
+
+    <!-- Phase 1 -->
+    <div class="section-label" id="sp-sl-ph1">Phase 1<button class="collapse-btn" onclick="toggleCollapse('sp-ph1-body','sp-sl-ph1',this)">▾</button></div>
+    <div id="sp-ph1-body">
+      <div class="phase">
+        <div class="phase-bar"><span class="phase-n">01</span><div><div class="pt-tag">Phase 1</div><div class="pt-title">TECHNIQUE &amp; GAINAGE</div><div class="pt-sub">Position de rack, gainage abdominal, lockout complet</div></div><span class="phase-weeks">Semaines 1–4</span></div>
+
+        <div class="session" id="sp-p1sA" data-label="Strict Press — Phase 1 · Séance A" data-sublabel="Press barre vide + technique" data-phase="Phase 1">
+          <div class="shead"><div class="sh-left"><div class="sh-title">Séance A — Technique fondamentale</div><div class="sh-sub">Position de rack, gainage, poussée verticale</div></div><div class="sh-right"><span class="timer-tag">15 min</span><span class="timer-tag t20">20 min</span><button class="collapse-btn" onclick="toggleCollapse('sp-p1sA-body',null,this)">▾</button></div></div>
+          <div id="sp-p1sA-body">
+            <div class="ex-list">
+              <div class="ex main" data-rest="180" data-exid="sp_p1sA_1"><span class="ex-n">1</span><div><div class="ex-name">Strict Press — Technique</div><div class="ex-note">Barre en rack haut (front rack ou prise classique), coudes légèrement devant la barre, pas sous. Gainer fort, pousser verticalement en passant la tête entre les bras en fin de mouvement. Lock-out complet en haut.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : S1-2 3×5 @ barre · S3-4 3×5 @ 40%</span><span class="tag t-sets only-20">20 MIN : S1-2 5×5 @ barre · S3-4 5×5 @ 40%</span><span class="tag t-tempo">Tempo 2-1-2</span></div></div><span class="badge b-main">PRINCIPAL</span></div>
+              <div class="ex" data-rest="90" data-exid="sp_p1sA_2"><span class="ex-n">2</span><div><div class="ex-name">Z-Press (Strict Press assis au sol)</div><div class="ex-note">Assis les jambes tendues, barre sur épaules, presser strictement. Élimine complètement la compensation des jambes et renforce le gainage vertical overhead.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : 2×8 @ barre</span><span class="tag t-sets only-20">20 MIN : 3×8 @ barre</span></div></div><span class="badge b-acc">GAINAGE VERTICAL</span></div>
+              <div class="ex only-20" data-rest="60" data-exid="sp_p1sA_3"><span class="ex-n">3</span><div><div class="ex-name">Lateral Raise — Technique</div><div class="ex-note">Élévation latérale stricte, légère flexion du coude, monter jusqu'à l'horizontale. Deltoïdes moyens — souvent sous-développés et limitants dans le Strict Press.</div><div class="ex-tags"><span class="tag t-sets">3×12 poids léger</span><span class="tag t-20only">+20 MIN</span></div></div><span class="badge b-acc">DELTOÏDES</span></div>
+              <div class="ex only-20" data-rest="45" data-exid="sp_p1sA_4"><span class="ex-n">4</span><div><div class="ex-name">Band Pull-Apart</div><div class="ex-note">Élastique à hauteur de poitrine, écarter horizontalement jusqu'aux épaules. Rétracteurs scapulaires — équilibre la protraction du press et protège les épaules.</div><div class="ex-tags"><span class="tag t-sets">3×15</span><span class="tag t-20only">+5 min</span></div></div><span class="badge b-20">+20MIN</span></div>
+            </div>
+            <div class="tip">Si les lombaires s'archivent, gainer plus fort ou réduire la charge. La colonne doit rester neutre du début à la fin de chaque répétition.</div>
+          </div>
+        </div>
+
+        <div class="session" id="sp-p1sB" data-label="Strict Press — Phase 1 · Séance B" data-sublabel="Tempo + activation overhead" data-phase="Phase 1">
+          <div class="shead"><div class="sh-left"><div class="sh-title">Séance B — Contrôle &amp; activation</div><div class="sh-sub">Tempo contrôlé, coiffe des rotateurs, scapulaires</div></div><div class="sh-right"><span class="timer-tag">15 min</span><span class="timer-tag t20">20 min</span><button class="collapse-btn" onclick="toggleCollapse('sp-p1sB-body',null,this)">▾</button></div></div>
+          <div id="sp-p1sB-body">
+            <div class="ex-list">
+              <div class="ex main" data-rest="180" data-exid="sp_p1sB_1"><span class="ex-n">1</span><div><div class="ex-name">Strict Press — Tempo Excentrique</div><div class="ex-note">3 secondes de descente contrôlée jusqu'en rack position, 1s de pause en bas, poussée normale. Renforce le contrôle de la barre et la puissance initiale depuis les épaules.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : 3×4 @ barre / 40%</span><span class="tag t-sets only-20">20 MIN : 4×4 @ barre / 40%</span><span class="tag t-tempo">Tempo 3-1-1</span></div></div><span class="badge b-main">PRINCIPAL</span></div>
+              <div class="ex" data-rest="90" data-exid="sp_p1sB_2"><span class="ex-n">2</span><div><div class="ex-name">Push Press léger</div><div class="ex-note">Légère poussée des jambes (dip &amp; drive) pour mettre la barre en mouvement, terminer en lockout strict. Même trajectoire que le Strict Press — enseigne le lockout final.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : 2×6 @ 50%</span><span class="tag t-sets only-20">20 MIN : 3×6 @ 50%</span></div></div><span class="badge b-acc">LOCKOUT</span></div>
+              <div class="ex only-20" data-rest="60" data-exid="sp_p1sB_3"><span class="ex-n">3</span><div><div class="ex-name">External Rotation (90°/coude)</div><div class="ex-note">Coude à 90° fixé sur le côté, élastique, rotation externe lente. Coiffe des rotateurs — stabilisateur clé de l'épaule sous charge overhead.</div><div class="ex-tags"><span class="tag t-sets">3×15/côté</span><span class="tag t-20only">+20 MIN</span></div></div><span class="badge b-acc">COIFFE</span></div>
+              <div class="ex only-20" data-rest="45" data-exid="sp_p1sB_4"><span class="ex-n">4</span><div><div class="ex-name">Overhead Tricep Extension (élastique)</div><div class="ex-note">Élastique fixé en bas, étendre les bras overhead. Triceps longs en étirement complet — souvent le point de blocage en fin de Strict Press lourd.</div><div class="ex-tags"><span class="tag t-sets">3×12</span><span class="tag t-20only">+5 min</span></div></div><span class="badge b-20">+20MIN</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 2 -->
+    <div class="section-label" id="sp-sl-ph2">Phase 2<button class="collapse-btn" onclick="toggleCollapse('sp-ph2-body','sp-sl-ph2',this)">▾</button></div>
+    <div id="sp-ph2-body">
+      <div class="phase">
+        <div class="phase-bar"><span class="phase-n">02</span><div><div class="pt-tag">Phase 2</div><div class="pt-title">CONSTRUCTION</div><div class="pt-sub">Montée en charge, volume de travail, solidité overhead</div></div><span class="phase-weeks">Semaines 5–8</span></div>
+
+        <div class="session" id="sp-p2sA" data-label="Strict Press — Phase 2 · Séance A" data-sublabel="Working sets chargés" data-phase="Phase 2">
+          <div class="shead"><div class="sh-left"><div class="sh-title">Séance A — Séries de travail</div><div class="sh-sub">Charge progressive, technique prioritaire</div></div><div class="sh-right"><span class="timer-tag">15 min</span><span class="timer-tag t20">20 min</span><button class="collapse-btn" onclick="toggleCollapse('sp-p2sA-body',null,this)">▾</button></div></div>
+          <div id="sp-p2sA-body">
+            <div class="ex-list">
+              <div class="ex main" data-rest="240" data-exid="sp_p2sA_1"><span class="ex-n">1</span><div><div class="ex-name">Strict Press — Working Sets</div><div class="ex-note">Augmenter la charge chaque semaine en maintenant la colonne neutre et le gainage actif. Ne jamais sacrifier la technique pour une répétition de plus.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : S5-6 3×5 @ 55% · S7-8 3×4 @ 62%</span><span class="tag t-sets only-20">20 MIN : S5-6 4×5 @ 55% · S7-8 4×4 @ 62%</span><span class="tag t-prog">Progression</span></div></div><span class="badge b-main">PRINCIPAL</span></div>
+              <div class="ex" data-rest="120" data-exid="sp_p2sA_2"><span class="ex-n">2</span><div><div class="ex-name">Close-Grip Bench Press</div><div class="ex-note">Prise serrée (largeur épaules), descente contrôlée jusqu'à la poitrine. Triceps + deltoïdes antérieurs — renforce le point de blocage mi-course du Strict Press.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : 2×6 @ 60%</span><span class="tag t-sets only-20">20 MIN : 3×6 @ 60%</span></div></div><span class="badge b-acc">TRICEPS</span></div>
+              <div class="ex only-20" data-rest="60" data-exid="sp_p2sA_3"><span class="ex-n">3</span><div><div class="ex-name">DB Arnold Press</div><div class="ex-note">Partir paumes vers soi en bas, rotation vers l'extérieur en montant. Sollicite les 3 faisceaux des deltoïdes + muscles scapulaires en un seul mouvement.</div><div class="ex-tags"><span class="tag t-sets">3×10</span><span class="tag t-20only">+20 MIN</span></div></div><span class="badge b-acc">DELTOÏDES 360°</span></div>
+              <div class="ex only-20" data-rest="45" data-exid="sp_p2sA_4"><span class="ex-n">4</span><div><div class="ex-name">Face Pull</div><div class="ex-note">Tirer vers le visage, coudes hauts, finir en rotation externe. Rétracteurs + rotateurs externes — contre-balance le press et protège l'articulation gleno-humérale.</div><div class="ex-tags"><span class="tag t-sets">3×15</span><span class="tag t-20only">+5 min</span></div></div><span class="badge b-20">+20MIN</span></div>
+            </div>
+            <div class="tip">Si la barre part en avant en montant, conscientiser le fait de pousser DERRIÈRE soi en début de mouvement (tête en avant), puis passer la tête au travers du cadre des bras.</div>
+          </div>
+        </div>
+
+        <div class="session" id="sp-p2sB" data-label="Strict Press — Phase 2 · Séance B" data-sublabel="Volume + point de blocage" data-phase="Phase 2">
+          <div class="shead"><div class="sh-left"><div class="sh-title">Séance B — Volume &amp; point faible</div><div class="sh-sub">Consolider la force aux pourcentages de travail</div></div><div class="sh-right"><span class="timer-tag">15 min</span><span class="timer-tag t20">20 min</span><button class="collapse-btn" onclick="toggleCollapse('sp-p2sB-body',null,this)">▾</button></div></div>
+          <div id="sp-p2sB-body">
+            <div class="ex-list">
+              <div class="ex main" data-rest="180" data-exid="sp_p2sB_1"><span class="ex-n">1</span><div><div class="ex-name">Strict Press — Volume</div><div class="ex-note">Charge 5–10% plus légère que Séance A, volume légèrement plus élevé. Ancrer le pattern moteur, développer la densité de travail.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : 3×6 @ 50%</span><span class="tag t-sets only-20">20 MIN : 4×6 @ 50%</span></div></div><span class="badge b-main">PRINCIPAL</span></div>
+              <div class="ex" data-rest="120" data-exid="sp_p2sB_2"><span class="ex-n">2</span><div><div class="ex-name">Press partiel — Mi-course</div><div class="ex-note">Barre depuis la rack position, presser seulement jusqu'à hauteur de front (mi-course). Isoler le point de blocage initial qui est souvent le plus faible en Strict Press.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : 2×5 @ 65%</span><span class="tag t-sets only-20">20 MIN : 3×5 @ 65%</span></div></div><span class="badge b-acc">STICKING POINT</span></div>
+              <div class="ex only-20" data-rest="60" data-exid="sp_p2sB_3"><span class="ex-n">3</span><div><div class="ex-name">Skull Crusher (haltères)</div><div class="ex-note">Couché, haltères, coudes vers le plafond, extension complète. Triceps longs en amplitude maximale — renforcement direct du lockout overhead.</div><div class="ex-tags"><span class="tag t-sets">3×12</span><span class="tag t-20only">+20 MIN</span></div></div><span class="badge b-acc">TRICEPS LONGS</span></div>
+              <div class="ex only-20" data-rest="45" data-exid="sp_p2sB_4"><span class="ex-n">4</span><div><div class="ex-name">Prone YTW (haltères légers)</div><div class="ex-note">Allongé sur banc incliné, enchaîner Y-T-W. Stabilisateurs scapulaires (rhomboïdes, trapèze inf.) — essential en période de charge croissante.</div><div class="ex-tags"><span class="tag t-sets">3×10 séquences</span><span class="tag t-20only">+5 min</span></div></div><span class="badge b-20">+20MIN</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 3 -->
+    <div class="section-label" id="sp-sl-ph3">Phase 3<button class="collapse-btn" onclick="toggleCollapse('sp-ph3-body','sp-sl-ph3',this)">▾</button></div>
+    <div id="sp-ph3-body">
+      <div class="phase">
+        <div class="phase-bar"><span class="phase-n">03</span><div><div class="pt-tag">Phase 3</div><div class="pt-title">INTENSIFICATION</div><div class="pt-sub">Charges maximales, préparation au test 1RM</div></div><span class="phase-weeks">Semaines 9–12</span></div>
+
+        <div class="session" id="sp-p3sA" data-label="Strict Press — Phase 3 · Séance A" data-sublabel="Séries lourdes + intensification" data-phase="Phase 3">
+          <div class="shead"><div class="sh-left"><div class="sh-title">Séance A — Intensification</div><div class="sh-sub">Charges lourdes, repos complets, qualité technique</div></div><div class="sh-right"><span class="timer-tag">15 min</span><span class="timer-tag t20">20 min</span><button class="collapse-btn" onclick="toggleCollapse('sp-p3sA-body',null,this)">▾</button></div></div>
+          <div id="sp-p3sA-body">
+            <div class="ex-list">
+              <div class="ex main" data-rest="300" data-exid="sp_p3sA_1"><span class="ex-n">1</span><div><div class="ex-name">Strict Press — Séries lourdes</div><div class="ex-note">S9-10 : triples lourds. S11 : doubles. S12 : protocole test 1RM. Échauffement progressif obligatoire — chaque set de rampe compte.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : S9-10 3×3 @ 70% · S11 3×2 @ 77% · S12 TEST 1RM</span><span class="tag t-sets only-20">20 MIN : S9-10 5×3 @ 70% · S11 4×2 @ 77% · S12 TEST 1RM</span><span class="tag t-prog">Progression</span></div></div><span class="badge b-main">PRINCIPAL</span></div>
+              <div class="ex" data-rest="180" data-exid="sp_p3sA_2"><span class="ex-n">2</span><div><div class="ex-name">Push Press lourd</div><div class="ex-note">Charge supérieure au Strict Press (~115-120% du 1RM SP). Surcharge des triceps et deltoïdes dans une fourchette de charge impossible en strict — adaptation neuromusculaire.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : 2×3 @ 80%</span><span class="tag t-sets only-20">20 MIN : 3×3 @ 80%</span></div></div><span class="badge b-acc">SURCHARGE</span></div>
+              <div class="ex only-20" data-rest="90" data-exid="sp_p3sA_3"><span class="ex-n">3</span><div><div class="ex-name">Strict Press — Pause en bas (2s)</div><div class="ex-note">Rack position 2 secondes, puis poussée explosive. Supprime l'élan élastique — développe la force pure depuis la position initiale.</div><div class="ex-tags"><span class="tag t-sets">3×3 @ 65%</span><span class="tag t-20only">+20 MIN</span></div></div><span class="badge b-acc">FORCE PURE</span></div>
+              <div class="ex only-20" data-rest="45" data-exid="sp_p3sA_4"><span class="ex-n">4</span><div><div class="ex-name">Banded External Rotation</div><div class="ex-note">Maintient la santé de la coiffe des rotateurs en période d'intensification maximale. Ne jamais sauter cet exercice en phase 3.</div><div class="ex-tags"><span class="tag t-sets">3×15/côté</span><span class="tag t-20only">+5 min</span></div></div><span class="badge b-20">+20MIN</span></div>
+            </div>
+            <div class="tip">S12 : barre vide → 50% → 65% → 77% → 87% → tentative 1RM. 5 min entre chaque rampe. Si la barre s'arrête à mi-course, stopper la série — une seule tentative manquée par séance.</div>
+          </div>
+        </div>
+
+        <div class="session" id="sp-p3sB" data-label="Strict Press — Phase 3 · Séance B" data-sublabel="Vitesse de barre + récupération active" data-phase="Phase 3">
+          <div class="shead"><div class="sh-left"><div class="sh-title">Séance B — Vitesse &amp; volume technique</div><div class="sh-sub">Groove le patron, maintenir la densité</div></div><div class="sh-right"><span class="timer-tag">15 min</span><span class="timer-tag t20">20 min</span><button class="collapse-btn" onclick="toggleCollapse('sp-p3sB-body',null,this)">▾</button></div></div>
+          <div id="sp-p3sB-body">
+            <div class="ex-list">
+              <div class="ex main" data-rest="180" data-exid="sp_p3sB_1"><span class="ex-n">1</span><div><div class="ex-name">Strict Press — Speed Sets</div><div class="ex-note">Charge modérée, poussée aussi explosive que possible. Développe la vitesse initiale de barre — facteur clé pour passer les charges maximales.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : 3×4 @ 60%</span><span class="tag t-sets only-20">20 MIN : 4×4 @ 60%</span><span class="tag t-tempo">Vitesse max poussée</span></div></div><span class="badge b-main">PRINCIPAL</span></div>
+              <div class="ex" data-rest="90" data-exid="sp_p3sB_2"><span class="ex-n">2</span><div><div class="ex-name">Z-Press (assis au sol)</div><div class="ex-note">Presse stricte assis au sol, jambes tendues. Isole complètement les épaules et les triceps — renforce le gainage vertical spécifique au Strict Press lourd.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : 3×6 @ 45%</span><span class="tag t-sets only-20">20 MIN : 4×6 @ 45%</span></div></div><span class="badge b-acc">ISOLEMENT OVERHEAD</span></div>
+              <div class="ex only-20" data-rest="60" data-exid="sp_p3sB_3"><span class="ex-n">3</span><div><div class="ex-name">Complex : 3 Strict Press + 3 Push Press</div><div class="ex-note">Enchaîner sans reposer la barre. Le Push Press aide les bras à finir après que le Strict Press les a épuisés. Densité maximale.</div><div class="ex-tags"><span class="tag t-sets">3× @ 55%</span><span class="tag t-20only">+20 MIN</span></div></div><span class="badge b-acc">COMPLEXE</span></div>
+              <div class="ex only-20" data-rest="45" data-exid="sp_p3sB_4"><span class="ex-n">4</span><div><div class="ex-name">Overhead Carry (KB)</div><div class="ex-note">Marcher avec un kettlebell ou haltère en overhead, bras tendu. Stabilité dynamique de l'épaule en charge — renforce le lockout en situation de fatigue.</div><div class="ex-tags"><span class="tag t-sets">3×20m</span><span class="tag t-20only">+5 min</span></div></div><span class="badge b-20">+20MIN</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Progression table -->
+    <div class="section-label">Suivi de progression</div>
+    <p style="font-size:11px;color:var(--muted);margin-bottom:8px">Les volumes tiennent compte de la préparation (2–3 min). La colonne <strong style="color:var(--blue)">15 MIN</strong> reflète ~12 min de travail effectif · <strong style="color:var(--green)">20 MIN</strong> reflète ~17 min. Les % sont relatifs à ton 1RM Strict Press.</p>
+    <table class="prog-table">
+      <thead><tr><th>Semaine</th><th>Charge</th><th style="color:var(--blue)">Volume 15 MIN</th><th style="color:var(--green)">Volume 20 MIN</th><th>% 1RM</th><th>Jalons</th></tr></thead>
+      <tbody>
+        <tr><td class="wk">S1</td><td>Barre</td><td>3×5</td><td>5×5</td><td>—</td><td>Référence</td></tr>
+        <tr><td class="wk">S2</td><td>Barre</td><td>3×5</td><td>5×5</td><td>—</td><td>Position</td></tr>
+        <tr><td class="wk">S3</td><td>40%</td><td>3×5</td><td>5×5</td><td>40%</td><td>Ancrage</td></tr>
+        <tr><td class="wk">S4</td><td>40%</td><td>3×4</td><td>4×4</td><td>40%</td><td class="milestone">★ Gainage stable</td></tr>
+        <tr><td class="wk">S5</td><td>55%</td><td>3×5</td><td>4×5</td><td>55%</td><td>Charge monte</td></tr>
+        <tr><td class="wk">S6</td><td>58%</td><td>3×5</td><td>4×5</td><td>58%</td><td>Volume solide</td></tr>
+        <tr><td class="wk">S7</td><td>62%</td><td>3×4</td><td>4×4</td><td>62%</td><td>Force</td></tr>
+        <tr><td class="wk">S8</td><td>62%</td><td>3×4</td><td>4×4</td><td>62%</td><td class="milestone">★ 65% supporté</td></tr>
+        <tr><td class="wk">S9</td><td>70%</td><td>3×3</td><td>5×3</td><td>70%</td><td>Intensité</td></tr>
+        <tr><td class="wk">S10</td><td>73%</td><td>3×3</td><td>5×3</td><td>73%</td><td>Charge stable</td></tr>
+        <tr><td class="wk">S11</td><td>77%</td><td>3×2</td><td>4×2</td><td>77%</td><td>Force maximale</td></tr>
+        <tr><td class="wk">S12</td><td>TEST</td><td>1RM</td><td>1RM + confirm</td><td>85%+</td><td class="milestone">★ +5 à 10%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
   <div id="panel-rm" class="prog-panel">
     <div class="rm-grid">
       <div class="rm-card">
@@ -1896,7 +2054,7 @@ footer strong{color:var(--orange)}
 
 </div>
 
-<footer><strong>SINGLY</strong> — BackSquat · HSPU Débutant · Strict Pull-ups · Deadlift · Overhead Squat · Front Squat · Push-ups · 1ère Traction · Calculateur 1RM</footer>
+<footer><strong>SINGLY</strong> — BackSquat · HSPU Débutant · Strict Pull-ups · Deadlift · Overhead Squat · Front Squat · Push-ups · 1ère Traction · Strict Press · Calculateur 1RM</footer>
 
 <script>
 // ── Shared timer ──────────────────────────────────
@@ -2043,6 +2201,11 @@ const PROG_EQUIPMENT={
     {n:'Barre de traction',c:'r'},{n:'Élastique d\'assistance épais',c:'r'},
     {n:'Banc ou table basse (inverted row)',c:'o'},
     {n:'Haltères',c:'a'},{n:'Kettlebell',c:'a'},{n:'Élastique de résistance',c:'a'}
+  ],
+  sp:[
+    {n:'Barre + disques',c:'r'},{n:'Rack ou J-cups',c:'r'},
+    {n:'Haltères légers (lateral raise)',c:'o'},
+    {n:'Haltères',c:'a'},{n:'Élastique de résistance',c:'a'},{n:'Kettlebell',c:'a'}
   ]
 };
 function toggleEquipment(panelId,btn){
@@ -2333,6 +2496,22 @@ const PROG_ACCESSORIES={
       {n:'Assisted Negative Pull-Up',note:'Depuis le menton au-dessus de la barre, descendre en 5 secondes avec l\'élastique. Excentrique dorsaux + biceps — méthode la plus directe pour atteindre la première traction.',sets:'3×4–5 · 5s',mat:'Élastique',type:'TRACTION EXCENTRIQUE'},
       {n:'Single-Arm KB Row',note:'Tirade unilatérale avec KB. Lat + bicep unilatéral — corrige les déséquilibres gauche/droite avant la traction.',sets:'3×10/côté',mat:'Kettlebell',type:'DORSAUX'}
     ]
+  },
+  // ── Strict Press ─ muscles : deltoïdes (ant.+moy.), triceps, trapèzes supérieurs, dentelé antérieur
+  // stabilisateurs : coiffe des rotateurs, rhomboïdes, trapèze inférieur, gainage anti-extension
+  sp:{
+    A:[
+      {n:'Lateral Raise',note:'Élévation latérale haltères, légère flexion du coude, monter à l'horizontale. Deltoïdes moyens — leur faiblesse limite souvent le Strict Press bien plus que les triceps.',sets:'3×12–15',mat:'Haltères',type:'DELTOÏDES MOY.'},
+      {n:'Skull Crusher',note:'Couché, haltères, coudes vers le plafond, extension complète. Triceps longs en amplitude maximale — renforcent directement le lockout final du Strict Press.',sets:'3×12',mat:'Haltères',type:'TRICEPS'},
+      {n:'Face Pull',note:'Tirer vers le visage, coudes hauts, finir en rotation externe des poignets. Rétracteurs + rotateurs externes — contre-balance la pression frontale et protège l'acromion.',sets:'3×15',mat:'Élastique',type:'SCAPULAIRE'},
+      {n:'Overhead Carry (KB)',note:'Marcher avec un KB en overhead bras tendu, tronc stable. Stabilité dynamique de l'épaule et du tronc overhead — renforce le lockout en situation de fatigue.',sets:'3×20m/côté',mat:'Kettlebell',type:'STABILITÉ OVERHEAD'}
+    ],
+    B:[
+      {n:'Arnold Press (haltères)',note:'Partir paumes vers soi en bas, rotation vers l'extérieur en montant. Sollicite les 3 faisceaux des deltoïdes + stabilisateurs scapulaires — plus complet que le press droit.',sets:'3×10',mat:'Haltères',type:'DELTOÏDES 360°'},
+      {n:'Overhead Tricep Extension',note:'Haltère en overhead, fléchir les coudes (triceps longs en étirement). Le triceps long est souvent négligé — sa faiblesse se manifeste sur les derniers centimètres du press.',sets:'3×12',mat:'Haltères',type:'TRICEPS LONGS'},
+      {n:'External Rotation (90°)',note:'Coude à 90°, élastique fixé sur le côté, rotation externe lente. Coiffe des rotateurs — stabilisateur passif de l'épaule en position overhead sous charge.',sets:'3×15/côté',mat:'Élastique',type:'COIFFE'},
+      {n:'Prone YTW',note:'Allongé sur banc incliné, haltères légers, enchaîner Y-T-W. Stabilisateurs scapulaires profonds (rhomboïdes, trapèze inf.) — essentiels pour maintenir la barre dans l'axe vertical.',sets:'3×10 séquences',mat:'Haltères',type:'SCAPULAIRE PROFOND'}
+    ]
   }
 };
 
@@ -2450,6 +2629,22 @@ const PROG_ACC_ALT={
       {n:'Prone T-Raise',note:'Allongé ventre, bras en T, lever les bras. Rétracteurs scapulaires sans élastique.',sets:'3×15',mat:'Sol'},
       {n:'Jump to Bar + Slow Negative (Volume)',note:'Même mouvement : sauter, menton au-dessus de la barre, descente en 5s. Répéter 4 fois. Excentrique dorsaux + biceps sans matériel.',sets:'3×4 · 5s descente',mat:'Sol'},
       {n:'Single-Arm Table Row',note:'Sous une table, tirade d\'un seul bras. Lat + bicep unilatéral. Corrige les déséquilibres avant la traction.',sets:'3×10/côté',mat:'Sol'}
+    ]
+  }
+  ,
+  // ── Strict Press alt sans matériel ──────────────────────
+  sp:{
+    A:[
+      {n:'Lateral Raise (bouteilles / sacs légers)',note:'Tenir deux bouteilles d\'eau ou un sac léger dans chaque main. Même geste que le lateral raise — deltoïdes moyens sans haltères.',sets:'3×15',mat:'Sol'},
+      {n:'Diamond Push-Up',note:'Push-up mains en diamant sous la poitrine. Triceps longs et deltoïdes antérieurs — substitut direct du skull crusher.',sets:'3×12',mat:'Sol'},
+      {n:'Prone T-Raise (Bodyweight)',note:'Allongé ventre, bras écartés en T, lever les bras du sol en serrant les omoplates. Rétracteurs scapulaires sans élastique.',sets:'3×15',mat:'Sol'},
+      {n:'Single-Arm Waiter Carry (book)',note:'Marcher avec un objet plat (livre épais) sur la paume tendue overhead. Stabilité de l\'épaule en charge statique — simule l\'overhead carry.',sets:'3×20m/côté',mat:'Sol'}
+    ],
+    B:[
+      {n:'Pike Push-Up',note:'Position de V inversé (pike), fléchir les coudes pour descendre la tête vers le sol. Réplique le mouvement du press — charge relative selon la hauteur des pieds.',sets:'3×12',mat:'Sol'},
+      {n:'Tricep Dip (chaise)',note:'Mains sur une chaise derrière soi, fléchir les coudes à 90°. Triceps + deltoïdes antérieurs sans matériel.',sets:'3×15',mat:'Sol'},
+      {n:'Floor External Rotation',note:'Couché ventre, bras à 90°, lever les avant-bras vers le plafond lentement. Coiffe des rotateurs sans élastique.',sets:'3×15/côté',mat:'Sol'},
+      {n:'Prone YTW (Bodyweight)',note:'Allongé ventre sur le sol, enchaîner Y-T-W en levant les bras du sol. Stabilisateurs scapulaires profonds sans haltères.',sets:'3×10 séquences',mat:'Sol'}
     ]
   }
 };
@@ -2616,12 +2811,13 @@ document.addEventListener('DOMContentLoaded',()=>{
     'pu': ['barre-traction','halteres','elastiques','kettlebell'],
     'pp': ['corps','banc','halteres','elastiques'],
     'ft': ['barre-traction','elastiques','halteres','banc','kettlebell'],
-    're': ['halteres','elastiques','corps','banc']
+    're': ['halteres','elastiques','corps','banc'],
+    'sp': ['barre-disques','rack','halteres','elastiques','kettlebell']
   };
 
   var OB_MAT_LABELS = {
     'bs': 'Back Squat','dl': 'Deadlift','fs': 'Front Squat','os': 'Overhead Squat',
-    'h': 'HSPU','pu': 'Pull-ups','pp': 'Push-ups','ft': '1ère Traction','re': 'Réhab Épaule'
+    'h': 'HSPU','pu': 'Pull-ups','pp': 'Push-ups','ft': '1ère Traction','re': 'Réhab Épaule','sp': 'Strict Press'
   };
 
   function obUpdateMat(prog){
