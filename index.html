@@ -480,7 +480,7 @@ footer strong{color:var(--orange)}
       <!-- STEP 5 — Matériel -->
       <div class="ob-step" id="ob-s5">
         <div class="ob-q">Quel matériel as-tu disponible ?</div>
-        <div class="ob-sub">Sélectionne tout ce dont tu disposes. Plusieurs choix possibles.</div>
+        <div class="ob-sub" id="ob-mat-sub">Voici le matériel utilisé dans ce programme. Décoche ce que tu ne possèdes pas.</div>
         <div class="ob-mat-grid">
           <div class="ob-mat-card" data-v="corps" onclick="obMat(this)">
             <span class="ob-mat-icon">🏃</span>
@@ -2594,10 +2594,50 @@ document.addEventListener('DOMContentLoaded',()=>{
   window.obCard = function(el, group){
     el.closest('.ob-cards').querySelectorAll('.ob-card').forEach(function(c){c.classList.remove('ob-sel');});
     el.classList.add('ob-sel');
-    if(group==='prog') D.prog = el.dataset.v;
+    if(group==='prog'){ D.prog = el.dataset.v; obUpdateMat(D.prog); }
     else if(group==='dur') D.dur = parseInt(el.dataset.v);
     obValidate();
   };
+
+  var OB_MAT = {
+    'bs': ['barre-disques','rack','banc'],
+    'dl': ['barre-disques','banc','halteres'],
+    'fs': ['barre-disques','rack'],
+    'os': ['barre-disques'],
+    'h':  ['corps','mur','banc'],
+    'pu': ['barre-traction','elastiques'],
+    'pp': ['corps','banc'],
+    'ft': ['barre-traction','elastiques','halteres','banc'],
+    're': ['halteres','elastiques','corps']
+  };
+
+  var OB_MAT_LABELS = {
+    'bs': 'Back Squat','dl': 'Deadlift','fs': 'Front Squat','os': 'Overhead Squat',
+    'h': 'HSPU','pu': 'Pull-ups','pp': 'Push-ups','ft': '1ère Traction','re': 'Réhab Épaule'
+  };
+
+  function obUpdateMat(prog){
+    var allowed = OB_MAT[prog] || [];
+    // Reset mat selection
+    D.mat = [];
+    // Show/hide + auto-select relevant cards
+    document.querySelectorAll('#ob-s5 .ob-mat-card').forEach(function(c){
+      var v = c.dataset.v;
+      if(allowed.indexOf(v) !== -1){
+        c.style.display = 'flex';
+        c.classList.add('ob-sel');
+        D.mat.push(v);
+      } else {
+        c.style.display = 'none';
+        c.classList.remove('ob-sel');
+      }
+    });
+    // Update subtitle
+    var sub = document.getElementById('ob-mat-sub');
+    var progName = OB_MAT_LABELS[prog] || prog;
+    if(sub) sub.textContent = 'Voici le matériel requis pour le programme ' + progName + '. Décoche ce que tu ne possèdes pas.';
+    obValidate();
+  }
 
   window.obMat = function(el){
     el.classList.toggle('ob-sel');
