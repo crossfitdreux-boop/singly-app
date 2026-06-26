@@ -232,9 +232,314 @@ footer strong{color:var(--orange)}
 .re-mode-btn.alt-active{background:rgba(165,110,255,.12);border-color:var(--purple);color:var(--purple)}
 
 @media(max-width:600px){.meta-row{gap:8px}.page-header{flex-direction:column;gap:12px;text-align:center}.ex{grid-template-columns:20px 1fr auto}.rm-grid{grid-template-columns:1fr}.rm-percent-grid{grid-template-columns:repeat(3,1fr)}.tabs{gap:6px}.tab-btn{padding:8px 14px;font-size:11px}}
+
+/* ═══════════════════════════════════════════════════════════
+   ONBOARDING
+═══════════════════════════════════════════════════════════ */
+#onboarding{position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;flex-direction:column;align-items:center;overflow-y:auto}
+#onboarding.ob-hidden{display:none}
+.ob-header{width:100%;max-width:640px;padding:28px 24px 0;display:flex;align-items:center;justify-content:space-between;box-sizing:border-box}
+.ob-logo{font-size:20px;font-weight:800;letter-spacing:-.5px;color:#fff}
+.ob-logo span{color:var(--orange)}
+.ob-step-count{font-size:13px;color:var(--muted);letter-spacing:.5px}
+.ob-progress{width:100%;max-width:640px;padding:16px 24px 0;box-sizing:border-box}
+.ob-prog-bar{height:3px;background:var(--s2);border-radius:2px;overflow:hidden}
+.ob-prog-fill{height:100%;background:var(--orange);border-radius:2px;transition:width .4s ease}
+.ob-body{width:100%;max-width:640px;padding:28px 24px 110px;box-sizing:border-box}
+.ob-step{display:none}
+.ob-step.ob-active{display:block;animation:obIn .32s ease}
+@keyframes obIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.ob-q{font-size:26px;font-weight:800;color:#fff;line-height:1.2;margin-bottom:6px}
+.ob-sub{font-size:14px;color:var(--muted);margin-bottom:24px;line-height:1.5}
+/* sexe */
+.ob-sexe-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+.ob-sexe-card{background:var(--s1);border:1.5px solid var(--border);border-radius:14px;padding:22px 16px;cursor:pointer;text-align:center;transition:border-color .18s,background .18s;display:flex;flex-direction:column;align-items:center;gap:8px;-webkit-tap-highlight-color:transparent}
+.ob-sexe-card:hover{border-color:rgba(255,101,0,.5);background:rgba(255,101,0,.05)}
+.ob-sexe-card.ob-sel{border-color:var(--orange);background:rgba(255,101,0,.1)}
+.ob-sexe-icon{font-size:36px}
+.ob-sexe-label{font-size:15px;font-weight:700;color:#fff}
+/* name inputs */
+.ob-inputs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ob-field{display:flex;flex-direction:column;gap:6px}
+.ob-field label{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.7px}
+.ob-input{background:var(--s1);border:1.5px solid var(--border);border-radius:10px;padding:13px 14px;color:#fff;font-size:15px;font-family:inherit;outline:none;transition:border-color .18s;width:100%;box-sizing:border-box}
+.ob-input:focus{border-color:var(--orange)}
+.ob-input::placeholder{color:rgba(160,160,180,.45)}
+/* age */
+.ob-age-num{font-size:80px;font-weight:900;color:var(--orange);text-align:center;line-height:1;margin:12px 0 2px;font-variant-numeric:tabular-nums}
+.ob-age-unit{text-align:center;color:var(--muted);font-size:14px;margin-bottom:28px}
+.ob-slider-wrap{padding:0 4px}
+.ob-slider{-webkit-appearance:none;appearance:none;width:100%;height:4px;border-radius:2px;background:var(--s2);outline:none;cursor:pointer}
+.ob-slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:26px;height:26px;border-radius:50%;background:var(--orange);cursor:pointer;box-shadow:0 2px 10px rgba(255,101,0,.45)}
+.ob-slider::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:var(--orange);cursor:pointer;border:none;box-shadow:0 2px 10px rgba(255,101,0,.45)}
+.ob-age-range{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:8px}
+/* cards grid */
+.ob-cards{display:grid;gap:10px;grid-template-columns:1fr 1fr}
+.ob-card{background:var(--s1);border:1.5px solid var(--border);border-radius:13px;padding:16px 14px;cursor:pointer;transition:border-color .18s,background .18s,transform .12s;text-align:left;position:relative;display:flex;flex-direction:column;gap:3px;-webkit-tap-highlight-color:transparent}
+.ob-card:hover{border-color:rgba(255,101,0,.5);background:rgba(255,101,0,.05);transform:translateY(-2px)}
+.ob-card.ob-sel{border-color:var(--orange);background:rgba(255,101,0,.1)}
+.ob-card.ob-sel::after{content:'✓';position:absolute;top:9px;right:11px;width:20px;height:20px;border-radius:50%;background:var(--orange);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;line-height:20px;text-align:center}
+.ob-card-icon{font-size:22px;margin-bottom:3px}
+.ob-card-title{font-size:14px;font-weight:700;color:#fff}
+.ob-card-sub{font-size:11px;color:var(--muted);line-height:1.4}
+.ob-cards-1col{grid-template-columns:1fr;max-width:400px}
+/* equipment multi */
+.ob-mat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ob-mat-card{background:var(--s1);border:1.5px solid var(--border);border-radius:13px;padding:14px 12px;cursor:pointer;display:flex;align-items:center;gap:10px;transition:border-color .18s,background .18s;-webkit-tap-highlight-color:transparent}
+.ob-mat-card:hover{border-color:rgba(255,101,0,.5);background:rgba(255,101,0,.05)}
+.ob-mat-card.ob-sel{border-color:var(--orange);background:rgba(255,101,0,.1)}
+.ob-mat-icon{font-size:22px;flex-shrink:0}
+.ob-mat-name{font-size:13px;font-weight:600;color:#fff;line-height:1.3}
+.ob-mat-hint{font-size:11px;color:var(--muted);margin-top:1px}
+/* injury */
+.ob-no-blessure{display:flex;align-items:center;gap:10px;background:var(--s1);border:1.5px solid var(--border);border-radius:12px;padding:14px 16px;cursor:pointer;margin-bottom:14px;transition:border-color .18s,background .18s;-webkit-tap-highlight-color:transparent}
+.ob-no-blessure.ob-sel{border-color:#00cd6e;background:rgba(0,205,110,.07)}
+.ob-textarea{background:var(--s1);border:1.5px solid var(--border);border-radius:12px;padding:14px;color:#fff;font-size:15px;font-family:inherit;outline:none;transition:border-color .18s,opacity .18s;width:100%;box-sizing:border-box;resize:vertical;min-height:120px;line-height:1.6}
+.ob-textarea:focus{border-color:var(--orange)}
+.ob-textarea::placeholder{color:rgba(160,160,180,.45)}
+.ob-textarea:disabled{opacity:.35;cursor:not-allowed}
+/* footer */
+#ob-footer{position:fixed;bottom:0;left:0;right:0;padding:14px 20px 28px;background:linear-gradient(transparent,var(--bg) 38%);display:flex;gap:10px;justify-content:center;z-index:10000}
+.ob-btn{padding:14px 28px;border-radius:50px;font-size:15px;font-weight:700;font-family:inherit;cursor:pointer;border:none;transition:opacity .18s,transform .12s;letter-spacing:.2px}
+.ob-btn:hover:not(:disabled){opacity:.9;transform:translateY(-1px)}
+.ob-btn-back{background:var(--s2);color:var(--muted);flex-shrink:0}
+.ob-btn-next{background:var(--orange);color:#fff;flex:1;max-width:300px}
+.ob-btn-next:disabled{opacity:.38;cursor:not-allowed;transform:none!important}
+/* welcome */
+.ob-welcome{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:90vh;text-align:center;padding:32px 24px;width:100%;max-width:540px;margin:0 auto;box-sizing:border-box}
+.ob-welcome-icon{font-size:56px;margin-bottom:20px}
+.ob-welcome h1{font-size:36px;font-weight:900;color:#fff;margin:0 0 10px;line-height:1.1}
+.ob-welcome h1 em{color:var(--orange);font-style:normal}
+.ob-welcome p{font-size:16px;color:var(--muted);max-width:360px;line-height:1.65;margin:0 0 36px}
+.ob-start-btn{background:var(--orange);color:#fff;border:none;padding:16px 48px;border-radius:50px;font-size:16px;font-weight:800;font-family:inherit;cursor:pointer;transition:opacity .18s,transform .12s;letter-spacing:.2px}
+.ob-start-btn:hover{opacity:.9;transform:translateY(-2px)}
+.ob-badges{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap;justify-content:center}
+.ob-badge{background:var(--s1);border:1px solid var(--border);border-radius:8px;padding:7px 14px;font-size:12px;color:var(--muted);font-weight:600}
+/* profile btn */
+.ob-profile-btn{background:none;border:1px solid var(--border);color:var(--muted);padding:5px 12px;border-radius:20px;font-size:12px;font-family:inherit;cursor:pointer;display:flex;align-items:center;gap:5px;transition:color .18s,border-color .18s}
+.ob-profile-btn:hover{color:#fff;border-color:rgba(255,101,0,.5)}
+/* divider in injury step */
+.ob-divider{display:flex;align-items:center;gap:10px;margin:0 0 14px}
+.ob-divider::before,.ob-divider::after{content:'';flex:1;height:1px;background:var(--border)}
+.ob-divider span{font-size:12px;color:var(--muted)}
+@media(max-width:500px){
+  .ob-cards{grid-template-columns:1fr}
+  .ob-mat-grid{grid-template-columns:1fr}
+  .ob-q{font-size:21px}
+  .ob-age-num{font-size:64px}
+  .ob-inputs{grid-template-columns:1fr}
+}
+
 </style>
 </head>
 <body>
+
+<!-- ══════════════════════════════════════════════
+     ONBOARDING OVERLAY
+══════════════════════════════════════════════ -->
+<div id="onboarding" class="ob-hidden">
+
+  <!-- Welcome -->
+  <div class="ob-welcome" id="ob-welcome">
+    <div class="ob-welcome-icon">🏋️</div>
+    <h1>Bienvenue sur<br><em>Singly</em></h1>
+    <p>Réponds à 6 questions rapides pour personnaliser ton programme d'entraînement.</p>
+    <button class="ob-start-btn" onclick="obStart()">Commencer →</button>
+    <div class="ob-badges">
+      <span class="ob-badge">⏱ 1 minute</span>
+      <span class="ob-badge">🎯 6 questions</span>
+      <span class="ob-badge">💾 Sauvegardé</span>
+    </div>
+  </div>
+
+  <!-- Steps -->
+  <div id="ob-steps" style="display:none;width:100%">
+    <div class="ob-header">
+      <div class="ob-logo">Sin<span>g</span>ly</div>
+      <div class="ob-step-count" id="ob-step-lbl">Étape 1 / 6</div>
+    </div>
+    <div class="ob-progress">
+      <div class="ob-prog-bar"><div class="ob-prog-fill" id="ob-prog-fill" style="width:0%"></div></div>
+    </div>
+    <div class="ob-body">
+
+      <!-- STEP 1 — Identité -->
+      <div class="ob-step ob-active" id="ob-s1">
+        <div class="ob-q">Qui es-tu ?</div>
+        <div class="ob-sub">Ces informations personnalisent ton expérience.</div>
+        <div class="ob-sexe-row">
+          <div class="ob-sexe-card" data-v="homme" onclick="obSexe(this)">
+            <span class="ob-sexe-icon">👨</span>
+            <span class="ob-sexe-label">Homme</span>
+          </div>
+          <div class="ob-sexe-card" data-v="femme" onclick="obSexe(this)">
+            <span class="ob-sexe-icon">👩</span>
+            <span class="ob-sexe-label">Femme</span>
+          </div>
+        </div>
+        <div class="ob-inputs">
+          <div class="ob-field">
+            <label>Prénom</label>
+            <input class="ob-input" id="ob-prenom" type="text" placeholder="Ex : Alex" autocomplete="given-name" oninput="obChk1()">
+          </div>
+          <div class="ob-field">
+            <label>Nom</label>
+            <input class="ob-input" id="ob-nom" type="text" placeholder="Ex : Martin" autocomplete="family-name" oninput="obChk1()">
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2 — Âge -->
+      <div class="ob-step" id="ob-s2">
+        <div class="ob-q">Quel est ton âge ?</div>
+        <div class="ob-sub">Les programmes s'adaptent à tous les niveaux, quel que soit l'âge.</div>
+        <div class="ob-age-num" id="ob-age-disp">25</div>
+        <div class="ob-age-unit">ans</div>
+        <div class="ob-slider-wrap">
+          <input class="ob-slider" type="range" min="15" max="99" value="25" id="ob-age-sl" oninput="obAge(this.value)">
+          <div class="ob-age-range"><span>15</span><span>99</span></div>
+        </div>
+      </div>
+
+      <!-- STEP 3 — Programme -->
+      <div class="ob-step" id="ob-s3">
+        <div class="ob-q">Quel mouvement veux-tu travailler ?</div>
+        <div class="ob-sub">Choisis le programme qui correspond à ton objectif principal.</div>
+        <div class="ob-cards">
+          <div class="ob-card" data-v="bs" onclick="obCard(this,'prog')">
+            <span class="ob-card-icon">🏋️</span>
+            <span class="ob-card-title">Back Squat</span>
+            <span class="ob-card-sub">Force & technique — 12 sem.</span>
+          </div>
+          <div class="ob-card" data-v="dl" onclick="obCard(this,'prog')">
+            <span class="ob-card-icon">⬆️</span>
+            <span class="ob-card-title">Deadlift</span>
+            <span class="ob-card-sub">Soulevé de terre — 12 sem.</span>
+          </div>
+          <div class="ob-card" data-v="fs" onclick="obCard(this,'prog')">
+            <span class="ob-card-icon">🥇</span>
+            <span class="ob-card-title">Front Squat</span>
+            <span class="ob-card-sub">Squat avant — 12 sem.</span>
+          </div>
+          <div class="ob-card" data-v="os" onclick="obCard(this,'prog')">
+            <span class="ob-card-icon">🎯</span>
+            <span class="ob-card-title">Overhead Squat</span>
+            <span class="ob-card-sub">Squat aérien — 12 sem.</span>
+          </div>
+          <div class="ob-card" data-v="h" onclick="obCard(this,'prog')">
+            <span class="ob-card-icon">🤸</span>
+            <span class="ob-card-title">HSPU</span>
+            <span class="ob-card-sub">Appui renversé — 12 sem.</span>
+          </div>
+          <div class="ob-card" data-v="pu" onclick="obCard(this,'prog')">
+            <span class="ob-card-icon">💪</span>
+            <span class="ob-card-title">Pull-ups</span>
+            <span class="ob-card-sub">Tractions strictes — 12 sem.</span>
+          </div>
+          <div class="ob-card" data-v="pp" onclick="obCard(this,'prog')">
+            <span class="ob-card-icon">👊</span>
+            <span class="ob-card-title">Push-ups</span>
+            <span class="ob-card-sub">Pompes — 12 sem.</span>
+          </div>
+          <div class="ob-card" data-v="ft" onclick="obCard(this,'prog')">
+            <span class="ob-card-icon">🔰</span>
+            <span class="ob-card-title">1ère Traction</span>
+            <span class="ob-card-sub">Programme débutant — 12 sem.</span>
+          </div>
+          <div class="ob-card" data-v="re" onclick="obCard(this,'prog')">
+            <span class="ob-card-icon">🩺</span>
+            <span class="ob-card-title">Réhab Épaule</span>
+            <span class="ob-card-sub">Récupération & renforcement</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 4 — Durée -->
+      <div class="ob-step" id="ob-s4">
+        <div class="ob-q">De combien de temps disposes-tu ?</div>
+        <div class="ob-sub">Chaque format est complet — à toi de choisir selon ton emploi du temps.</div>
+        <div class="ob-cards ob-cards-1col">
+          <div class="ob-card" data-v="15" onclick="obCard(this,'dur')">
+            <span class="ob-card-icon">⚡</span>
+            <span class="ob-card-title">15 minutes</span>
+            <span class="ob-card-sub">Essentiel — exercices principaux uniquement</span>
+          </div>
+          <div class="ob-card" data-v="20" onclick="obCard(this,'dur')">
+            <span class="ob-card-icon">🔥</span>
+            <span class="ob-card-title">20 minutes</span>
+            <span class="ob-card-sub">Complet — exercices principaux + accessoires</span>
+          </div>
+          <div class="ob-card" data-v="60" onclick="obCard(this,'dur')">
+            <span class="ob-card-icon">💪</span>
+            <span class="ob-card-title">1 heure</span>
+            <span class="ob-card-sub">Performance — programme complet + stabilisateurs</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 5 — Matériel -->
+      <div class="ob-step" id="ob-s5">
+        <div class="ob-q">Quel matériel as-tu disponible ?</div>
+        <div class="ob-sub">Sélectionne tout ce dont tu disposes. Plusieurs choix possibles.</div>
+        <div class="ob-mat-grid">
+          <div class="ob-mat-card" data-v="corps" onclick="obMat(this)">
+            <span class="ob-mat-icon">🏃</span>
+            <div><div class="ob-mat-name">Poids de corps</div><div class="ob-mat-hint">Aucun équipement</div></div>
+          </div>
+          <div class="ob-mat-card" data-v="barre-traction" onclick="obMat(this)">
+            <span class="ob-mat-icon">🔵</span>
+            <div><div class="ob-mat-name">Barre de traction</div><div class="ob-mat-hint">Fixe ou de porte</div></div>
+          </div>
+          <div class="ob-mat-card" data-v="barre-disques" onclick="obMat(this)">
+            <span class="ob-mat-icon">🏋️</span>
+            <div><div class="ob-mat-name">Barre + disques</div><div class="ob-mat-hint">Barre olympique</div></div>
+          </div>
+          <div class="ob-mat-card" data-v="rack" onclick="obMat(this)">
+            <span class="ob-mat-icon">🏗️</span>
+            <div><div class="ob-mat-name">Rack / Cage à squat</div><div class="ob-mat-hint">Pour squatter & presser</div></div>
+          </div>
+          <div class="ob-mat-card" data-v="halteres" onclick="obMat(this)">
+            <span class="ob-mat-icon">💪</span>
+            <div><div class="ob-mat-name">Haltères</div><div class="ob-mat-hint">Paires ou réglables</div></div>
+          </div>
+          <div class="ob-mat-card" data-v="elastiques" onclick="obMat(this)">
+            <span class="ob-mat-icon">🟡</span>
+            <div><div class="ob-mat-name">Élastiques</div><div class="ob-mat-hint">Bandes de résistance</div></div>
+          </div>
+          <div class="ob-mat-card" data-v="banc" onclick="obMat(this)">
+            <span class="ob-mat-icon">🪑</span>
+            <div><div class="ob-mat-name">Banc / Box</div><div class="ob-mat-hint">Plat ou réglable</div></div>
+          </div>
+          <div class="ob-mat-card" data-v="mur" onclick="obMat(this)">
+            <span class="ob-mat-icon">🧱</span>
+            <div><div class="ob-mat-name">Mur</div><div class="ob-mat-hint">Pour HSPU & handstand</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 6 — Blessure -->
+      <div class="ob-step" id="ob-s6">
+        <div class="ob-q">As-tu une blessure à prendre en compte ?</div>
+        <div class="ob-sub">Cette info permettra d'adapter les conseils et recommandations du programme.</div>
+        <div class="ob-no-blessure ob-sel" id="ob-no-bl" onclick="obToggleNoBl()">
+          <span style="font-size:20px">✅</span>
+          <span style="font-size:14px;font-weight:600;color:#fff">Non, aucune blessure</span>
+        </div>
+        <div class="ob-divider"><span>OU</span></div>
+        <textarea class="ob-textarea" id="ob-bl-text" placeholder="Décris ta blessure... (ex : douleur épaule droite, genou instable, lombalgie...)" oninput="obBlInput()" disabled style="opacity:.35"></textarea>
+      </div>
+
+    </div><!-- /ob-body -->
+  </div><!-- /ob-steps -->
+
+  <!-- Footer nav -->
+  <div id="ob-footer" style="display:none">
+    <button class="ob-btn ob-btn-back" id="ob-back-btn" onclick="obBack()" style="display:none">← Retour</button>
+    <button class="ob-btn ob-btn-next" id="ob-next-btn" onclick="obNext()" disabled>Suivant →</button>
+  </div>
+
+</div><!-- /onboarding -->
+
 
 <!-- Shared Modal -->
 <div class="modal-overlay" id="sessionModal" onclick="handleModalClick(event)">
@@ -448,9 +753,9 @@ footer strong{color:var(--orange)}
           <div class="shead"><div class="sh-left"><div class="sh-title">Séance A — Pike Push-ups + Inversé Mur</div><div class="sh-sub">Focus : mise en charge épaules et position inversée</div></div><div class="sh-right"><span class="timer-tag">15 min</span><span class="timer-tag t20">20 min</span><button class="collapse-btn" onclick="toggleCollapse('h-p1sA-body',null,this)">▾</button></div></div>
           <div id="h-p1sA-body">
             <div class="ex-list">
-              <div class="ex main" data-rest="90" data-exid="h_p1sA_1"><span class="ex-n">1</span><div><div class="ex-name">Pike Push-Up — Feet on Floor</div><div class="ex-note">Fessiers en hauteur formant un V, tête vers le sol, coudes larges. Descendre jusqu'à effleurer le sol.</div><div class="ex-tags"><span class="tag t-sets">S1: 3×6 · S2: 3×8 · S3: 4×8 · S4: 4×10</span><span class="tag t-tempo">Tempo 2-1-2</span></div></div><span class="badge b-main">PRINCIPAL</span></div>
-              <div class="ex main" data-rest="90" data-exid="h_p1sA_2"><span class="ex-n">2</span><div><div class="ex-name">Wall Handstand — Isometric Hold</div><div class="ex-note">Kick-up pieds au mur (ventre face au mur). Épaules actives, bras tendus. Habituation position renversée.</div><div class="ex-tags"><span class="tag t-sets">S1-2: 4×10s · S3-4: 4×15–20s</span></div></div><span class="badge b-main">MUR</span></div>
-              <div class="ex" data-rest="120" data-exid="h_p1sA_3"><span class="ex-n">3</span><div><div class="ex-name">Pike Push-Up Negative</div><div class="ex-note">Descente en 4–5 secondes depuis la position haute. Montée aidée. Force excentrique épaules.</div><div class="ex-tags"><span class="tag t-sets">3×5</span><span class="tag t-tempo">4–5s descente</span></div></div><span class="badge b-acc">EXCENTRIQUE</span></div>
+              <div class="ex main" data-rest="90" data-exid="h_p1sA_1"><span class="ex-n">1</span><div><div class="ex-name">Pike Push-Up — Feet on Floor</div><div class="ex-note">Fessiers en hauteur formant un V, tête vers le sol, coudes larges. Descendre jusqu'à effleurer le sol.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : S1-2 3×6–8 · S3-4 4×8–10</span><span class="tag t-sets only-20">20 MIN : S1 3×6 · S2 3×8 · S3 4×8 · S4 4×10</span><span class="tag t-tempo">Tempo 2-1-2</span></div></div><span class="badge b-main">PRINCIPAL</span></div>
+              <div class="ex main" data-rest="90" data-exid="h_p1sA_2"><span class="ex-n">2</span><div><div class="ex-name">Wall Handstand — Isometric Hold</div><div class="ex-note">Kick-up pieds au mur (ventre face au mur). Épaules actives, bras tendus. Habituation position renversée.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : S1-2 4×10s · S3-4 4×15s</span><span class="tag t-sets only-20">20 MIN : S1-2 4×10s · S3-4 4×15–20s</span></div></div><span class="badge b-main">MUR</span></div>
+              <div class="ex" data-rest="120" data-exid="h_p1sA_3"><span class="ex-n">3</span><div><div class="ex-name">Pike Push-Up Negative</div><div class="ex-note">Descente en 4–5 secondes depuis la position haute. Montée aidée. Force excentrique épaules.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : 3×5</span><span class="tag t-sets only-20">20 MIN : 4×5</span><span class="tag t-tempo">4–5s descente</span></div></div><span class="badge b-acc">EXCENTRIQUE</span></div>
               <div class="ex only-20" data-rest="60" data-exid="h_p1sA_4"><span class="ex-n">4</span><div><div class="ex-name">Scapular Push-Up (High Plank)</div><div class="ex-note">Protraction/rétraction des omoplates sans plier les coudes. Active le serratus anterior.</div><div class="ex-tags"><span class="tag t-sets">3×10</span><span class="tag t-20only">+5 min</span></div></div><span class="badge b-20">+20MIN</span></div>
             </div>
             <div class="tip">Priorité phase 1 : s'habituer à être la tête en bas. L'inversé au mur ventre au mur est la solution la plus sécurisante.</div>
@@ -460,9 +765,9 @@ footer strong{color:var(--orange)}
           <div class="shead"><div class="sh-left"><div class="sh-title">Séance B — Pieds Surélevés + Compression</div><div class="sh-sub">Augmentation progressive de l'angle</div></div><div class="sh-right"><span class="timer-tag">15 min</span><span class="timer-tag t20">20 min</span><button class="collapse-btn" onclick="toggleCollapse('h-p1sB-body',null,this)">▾</button></div></div>
           <div id="h-p1sB-body">
             <div class="ex-list">
-              <div class="ex main" data-rest="90" data-exid="h_p1sB_1"><span class="ex-n">1</span><div><div class="ex-name">Pike Push-Up — Feet on Box (45 cm)</div><div class="ex-note">Hanches plus hautes, angle plus grand sur les épaules. Coudes à 60–70° du tronc.</div><div class="ex-tags"><span class="tag t-sets">S1-2: 3×6 · S3-4: 4×8</span><span class="tag t-tempo">Tempo 2-1-2</span></div></div><span class="badge b-main">PRINCIPAL</span></div>
-              <div class="ex main" data-rest="90" data-exid="h_p1sB_2"><span class="ex-n">2</span><div><div class="ex-name">Wall Handstand — Kick-Up Progress</div><div class="ex-note">Pieds au mur, marcher les mains vers le mur pour hanches au-dessus des épaules. Tenir 10–20s.</div><div class="ex-tags"><span class="tag t-sets">4×10–20s</span></div></div><span class="badge b-main">MUR</span></div>
-              <div class="ex" data-rest="60" data-exid="h_p1sB_3"><span class="ex-n">3</span><div><div class="ex-name">Hollow Hold + Compression</div><div class="ex-note">Position creuse maintenue, puis soulever les jambes vers la poitrine. Gainage actif pour le kipping.</div><div class="ex-tags"><span class="tag t-sets">3×15s + 8 compressions</span></div></div><span class="badge b-acc">GAINAGE</span></div>
+              <div class="ex main" data-rest="90" data-exid="h_p1sB_1"><span class="ex-n">1</span><div><div class="ex-name">Pike Push-Up — Feet on Box (45 cm)</div><div class="ex-note">Hanches plus hautes, angle plus grand sur les épaules. Coudes à 60–70° du tronc.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : S1-2 3×6 · S3-4 4×8</span><span class="tag t-sets only-20">20 MIN : S1-2 4×6 · S3-4 5×8</span><span class="tag t-tempo">Tempo 2-1-2</span></div></div><span class="badge b-main">PRINCIPAL</span></div>
+              <div class="ex main" data-rest="90" data-exid="h_p1sB_2"><span class="ex-n">2</span><div><div class="ex-name">Wall Handstand — Kick-Up Progress</div><div class="ex-note">Pieds au mur, marcher les mains vers le mur pour hanches au-dessus des épaules. Tenir 10–20s.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : 4×10–15s</span><span class="tag t-sets only-20">20 MIN : 4×10–20s</span></div></div><span class="badge b-main">MUR</span></div>
+              <div class="ex" data-rest="60" data-exid="h_p1sB_3"><span class="ex-n">3</span><div><div class="ex-name">Hollow Hold + Compression</div><div class="ex-note">Position creuse maintenue, puis soulever les jambes vers la poitrine. Gainage actif pour le kipping.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : 3×15s + 8 compr.</span><span class="tag t-sets only-20">20 MIN : 4×20s + 10 compr.</span></div></div><span class="badge b-acc">GAINAGE</span></div>
               <div class="ex only-20" data-rest="0" data-exid="h_p1sB_4"><span class="ex-n">4</span><div><div class="ex-name">Shoulder Mobility — Int/Ext Rotation</div><div class="ex-note">Rotation externe/interne élastique léger + dislocations de bras. Prévention et amplitude.</div><div class="ex-tags"><span class="tag t-sets">2×10 chaque</span><span class="tag t-20only">+5 min</span></div></div><span class="badge b-20">+20MIN</span></div>
             </div>
           </div>
@@ -478,9 +783,9 @@ footer strong{color:var(--orange)}
           <div class="shead"><div class="sh-left"><div class="sh-title">Séance A — Négatifs HSPU + Kipping Intro</div><div class="sh-sub">Prérequis : inversé mur 20s, pike PU pieds hauts ×8</div></div><div class="sh-right"><span class="timer-tag">15 min</span><span class="timer-tag t20">20 min</span><button class="collapse-btn" onclick="toggleCollapse('h-p2sA-body',null,this)">▾</button></div></div>
           <div id="h-p2sA-body">
             <div class="ex-list">
-              <div class="ex main" data-rest="150" data-exid="h_p2sA_1"><span class="ex-n">1</span><div><div class="ex-name">Wall HSPU Negative</div><div class="ex-note">Kick-up contre le mur, descente en 5s tête vers le sol, retomber doucement. Excentrique pur.</div><div class="ex-tags"><span class="tag t-sets">S5-6: 4×3 · S7-8: 5×3</span><span class="tag t-tempo">5s descente</span></div></div><span class="badge b-main">NÉGATIFS</span></div>
-              <div class="ex main" data-rest="120" data-exid="h_p2sA_2"><span class="ex-n">2</span><div><div class="ex-name">Kipping HSPU — Attempts</div><div class="ex-note">Descente tête au sol, genoux fléchis pour l'élan, extension explosive des hanches pour monter.</div><div class="ex-tags"><span class="tag t-sets">S5-6: 3×max · S7-8: 4×max</span><span class="tag t-prog">Tracker les reps</span></div></div><span class="badge b-main">KIPPING</span></div>
-              <div class="ex" data-rest="90" data-exid="h_p2sA_3"><span class="ex-n">3</span><div><div class="ex-name">Handstand Hold — Endurance</div><div class="ex-note">Maintenir l'appui renversé. Épaules actives, corps aligné, respiration normale.</div><div class="ex-tags"><span class="tag t-sets">3×20–30s</span></div></div><span class="badge b-acc">ENDURANCE</span></div>
+              <div class="ex main" data-rest="150" data-exid="h_p2sA_1"><span class="ex-n">1</span><div><div class="ex-name">Wall HSPU Negative</div><div class="ex-note">Kick-up contre le mur, descente en 5s tête vers le sol, retomber doucement. Excentrique pur.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : S5-6 4×3 · S7-8 5×3</span><span class="tag t-sets only-20">20 MIN : S5-6 5×3 · S7-8 6×3</span><span class="tag t-tempo">5s descente</span></div></div><span class="badge b-main">NÉGATIFS</span></div>
+              <div class="ex main" data-rest="120" data-exid="h_p2sA_2"><span class="ex-n">2</span><div><div class="ex-name">Kipping HSPU — Attempts</div><div class="ex-note">Descente tête au sol, genoux fléchis pour l'élan, extension explosive des hanches pour monter.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : S5-6 3×max · S7-8 4×max</span><span class="tag t-sets only-20">20 MIN : S5-6 4×max · S7-8 5×max</span><span class="tag t-prog">Tracker les reps</span></div></div><span class="badge b-main">KIPPING</span></div>
+              <div class="ex" data-rest="90" data-exid="h_p2sA_3"><span class="ex-n">3</span><div><div class="ex-name">Handstand Hold — Endurance</div><div class="ex-note">Maintenir l'appui renversé. Épaules actives, corps aligné, respiration normale.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : 3×20–30s</span><span class="tag t-sets only-20">20 MIN : 4×20–30s</span></div></div><span class="badge b-acc">ENDURANCE</span></div>
               <div class="ex only-20" data-rest="90" data-exid="h_p2sA_4"><span class="ex-n">4</span><div><div class="ex-name">Deficit Pike Push-Up (+5 cm)</div><div class="ex-note">Mains sur deux livres ou disques. Amplitude accrue. Prépare le HSPU déficit futur.</div><div class="ex-tags"><span class="tag t-sets">3×6–8</span><span class="tag t-tempo">3-1-1</span><span class="tag t-20only">+5 min</span></div></div><span class="badge b-20">+20MIN</span></div>
             </div>
             <div class="tip">Si les négatifs HSPU font peur : placer un coussin sous la tête. La confiance vient de la répétition.</div>
@@ -490,9 +795,9 @@ footer strong{color:var(--orange)}
           <div class="shead"><div class="sh-left"><div class="sh-title">Séance B — Volume Kipping + Isométrie</div><div class="sh-sub">Accumulation de volume et confiance en inversé</div></div><div class="sh-right"><span class="timer-tag">15 min</span><span class="timer-tag t20">20 min</span><button class="collapse-btn" onclick="toggleCollapse('h-p2sB-body',null,this)">▾</button></div></div>
           <div id="h-p2sB-body">
             <div class="ex-list">
-              <div class="ex main" data-rest="150" data-exid="h_p2sB_1"><span class="ex-n">1</span><div><div class="ex-name">Kipping HSPU — Volume Sets</div><div class="ex-note">Ajouter 1 rep par série chaque semaine. Même 1 rep — la progression compte.</div><div class="ex-tags"><span class="tag t-sets">S5: 4×1–2 · S6: 4×2–3 · S7: 5×2–4 · S8: 5×3–5</span></div></div><span class="badge b-main">VOLUME</span></div>
-              <div class="ex" data-rest="90" data-exid="h_p2sB_2"><span class="ex-n">2</span><div><div class="ex-name">Wall Handstand Walk — Lateral</div><div class="ex-note">Pieds au mur, marcher latéralement (5 pas D / 5 pas G). Proprioception en inversé.</div><div class="ex-tags"><span class="tag t-sets">3×5 pas chaque côté</span></div></div><span class="badge b-acc">MOBILITÉ</span></div>
-              <div class="ex" data-rest="120" data-exid="h_p2sB_3"><span class="ex-n">3</span><div><div class="ex-name">Elevated Pike Push-Up (60+ cm)</div><div class="ex-note">Corps presque vertical. Le plus proche du HSPU strict sans aller au mur. Tête touche le sol.</div><div class="ex-tags"><span class="tag t-sets">3×5–8</span><span class="tag t-tempo">Tempo 2-1-2</span></div></div><span class="badge b-acc">FORCE</span></div>
+              <div class="ex main" data-rest="150" data-exid="h_p2sB_1"><span class="ex-n">1</span><div><div class="ex-name">Kipping HSPU — Volume Sets</div><div class="ex-note">Ajouter 1 rep par série chaque semaine. Même 1 rep — la progression compte.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : S5-6 4×1–3 · S7-8 5×2–5</span><span class="tag t-sets only-20">20 MIN : S5 4×1–2 · S6 4×2–3 · S7 5×2–4 · S8 5×3–5</span></div></div><span class="badge b-main">VOLUME</span></div>
+              <div class="ex" data-rest="90" data-exid="h_p2sB_2"><span class="ex-n">2</span><div><div class="ex-name">Wall Handstand Walk — Lateral</div><div class="ex-note">Pieds au mur, marcher latéralement (5 pas D / 5 pas G). Proprioception en inversé.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : 3×5 pas/côté</span><span class="tag t-sets only-20">20 MIN : 4×5 pas/côté</span></div></div><span class="badge b-acc">MOBILITÉ</span></div>
+              <div class="ex" data-rest="120" data-exid="h_p2sB_3"><span class="ex-n">3</span><div><div class="ex-name">Elevated Pike Push-Up (60+ cm)</div><div class="ex-note">Corps presque vertical. Le plus proche du HSPU strict sans aller au mur. Tête touche le sol.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : 3×5–8</span><span class="tag t-sets only-20">20 MIN : 4×6–8</span><span class="tag t-tempo">Tempo 2-1-2</span></div></div><span class="badge b-acc">FORCE</span></div>
               <div class="ex only-20" data-rest="90" data-exid="h_p2sB_4"><span class="ex-n">4</span><div><div class="ex-name">Handstand Core Compression</div><div class="ex-note">En appui renversé, comprimer genoux vers poitrine bras tendus. Renforce le gainage du kipping.</div><div class="ex-tags"><span class="tag t-sets">3×5–8 compressions</span><span class="tag t-20only">+5 min</span></div></div><span class="badge b-20">+20MIN</span></div>
             </div>
           </div>
@@ -508,9 +813,9 @@ footer strong{color:var(--orange)}
           <div class="shead"><div class="sh-left"><div class="sh-title">Séance A — Kipping Sets + Négatifs Stricts</div><div class="sh-sub">Peak de volume kipping, introduction strict</div></div><div class="sh-right"><span class="timer-tag">15 min</span><span class="timer-tag t20">20 min</span><button class="collapse-btn" onclick="toggleCollapse('h-p3sA-body',null,this)">▾</button></div></div>
           <div id="h-p3sA-body">
             <div class="ex-list">
-              <div class="ex main" data-rest="180" data-exid="h_p3sA_1"><span class="ex-n">1</span><div><div class="ex-name">Kipping HSPU — Max Sets</div><div class="ex-note">Chercher à enchaîner le maximum. Repos complet entre séries. Objectif : 5+ kipping non-stop.</div><div class="ex-tags"><span class="tag t-sets">S9-10: 5×max · S11-12: 6×max</span><span class="tag t-prog">Objectif : 5+ reps/série</span></div></div><span class="badge b-main">KIPPING</span></div>
-              <div class="ex main" data-rest="150" data-exid="h_p3sA_2"><span class="ex-n">2</span><div><div class="ex-name">HSPU Negative (6s)</div><div class="ex-note">Descente en 6s, pause 1s tête au sol. Plus lent = plus de tension = plus de force stricte.</div><div class="ex-tags"><span class="tag t-sets">5×3</span><span class="tag t-tempo">6s descente + 1s pause</span></div></div><span class="badge b-main">STRICT FORCE</span></div>
-              <div class="ex" data-rest="120" data-exid="h_p3sA_3"><span class="ex-n">3</span><div><div class="ex-name">Handstand Hold — Max Duration</div><div class="ex-note">Tenir le plus longtemps possible. Objectif : 45–60s.</div><div class="ex-tags"><span class="tag t-sets">3×max</span></div></div><span class="badge b-acc">ENDURANCE</span></div>
+              <div class="ex main" data-rest="180" data-exid="h_p3sA_1"><span class="ex-n">1</span><div><div class="ex-name">Kipping HSPU — Max Sets</div><div class="ex-note">Chercher à enchaîner le maximum. Repos complet entre séries. Objectif : 5+ kipping non-stop.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : S9-10 5×max · S11-12 6×max</span><span class="tag t-sets only-20">20 MIN : S9-10 6×max · S11-12 7×max</span><span class="tag t-prog">Objectif : 5+ reps/série</span></div></div><span class="badge b-main">KIPPING</span></div>
+              <div class="ex main" data-rest="150" data-exid="h_p3sA_2"><span class="ex-n">2</span><div><div class="ex-name">HSPU Negative (6s)</div><div class="ex-note">Descente en 6s, pause 1s tête au sol. Plus lent = plus de tension = plus de force stricte.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : 5×3</span><span class="tag t-sets only-20">20 MIN : 6×3</span><span class="tag t-tempo">6s descente + 1s pause</span></div></div><span class="badge b-main">STRICT FORCE</span></div>
+              <div class="ex" data-rest="120" data-exid="h_p3sA_3"><span class="ex-n">3</span><div><div class="ex-name">Handstand Hold — Max Duration</div><div class="ex-note">Tenir le plus longtemps possible. Objectif : 45–60s.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : 3×max</span><span class="tag t-sets only-20">20 MIN : 4×max</span></div></div><span class="badge b-acc">ENDURANCE</span></div>
               <div class="ex only-20" data-rest="90" data-exid="h_p3sA_4"><span class="ex-n">4</span><div><div class="ex-name">Band-Assisted Strict HSPU</div><div class="ex-note">Élastique autour des hanches attaché en haut. 3–5 HSPU stricts assistés pour sentir le mouvement.</div><div class="ex-tags"><span class="tag t-sets">3×2–5</span><span class="tag t-20only">+5 min</span></div></div><span class="badge b-20">+20MIN</span></div>
             </div>
           </div>
@@ -519,9 +824,9 @@ footer strong{color:var(--orange)}
           <div class="shead"><div class="sh-left"><div class="sh-title">Séance B — Test Final HSPU</div><div class="sh-sub">Bilan des 12 semaines</div></div><div class="sh-right"><span class="timer-tag">15 min</span><span class="timer-tag t20">20 min</span><button class="collapse-btn" onclick="toggleCollapse('h-p3sB-body',null,this)">▾</button></div></div>
           <div id="h-p3sB-body">
             <div class="ex-list">
-              <div class="ex main" data-rest="300" data-exid="h_p3sB_1"><span class="ex-n">1</span><div><div class="ex-name">TEST — Kipping HSPU Max Reps</div><div class="ex-note">1 série max. Objectif : 5–8 kipping HSPU.</div><div class="ex-tags"><span class="tag t-sets">1 × MAX</span><span class="tag t-prog">Objectif : 5–8 reps</span></div></div><span class="badge b-main">TEST FINAL</span></div>
-              <div class="ex main" data-rest="180" data-exid="h_p3sB_2"><span class="ex-n">2</span><div><div class="ex-name">TEST — HSPU Negative Time</div><div class="ex-note">1 négatif HSPU au maximum. Objectif : 8–10 secondes minimum.</div><div class="ex-tags"><span class="tag t-sets">3 tentatives × max temps</span><span class="tag t-prog">Objectif : 8–10s</span></div></div><span class="badge b-main">TEST STRICT</span></div>
-              <div class="ex" data-rest="0" data-exid="h_p3sB_3"><span class="ex-n">3</span><div><div class="ex-name">TEST — Handstand Hold Max</div><div class="ex-note">Objectif : 45s+. Si atteint → prêt pour le programme HSPU Intermédiaire.</div><div class="ex-tags"><span class="tag t-sets">1 × max</span><span class="tag t-prog">Objectif : 45s+</span></div></div><span class="badge b-acc">TEST</span></div>
+              <div class="ex main" data-rest="300" data-exid="h_p3sB_1"><span class="ex-n">1</span><div><div class="ex-name">TEST — Kipping HSPU Max Reps</div><div class="ex-note">1 série max. Objectif : 5–8 kipping HSPU.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : 1×MAX</span><span class="tag t-sets only-20">20 MIN : 1×MAX</span><span class="tag t-prog">Objectif : 5–8 reps</span></div></div><span class="badge b-main">TEST FINAL</span></div>
+              <div class="ex main" data-rest="180" data-exid="h_p3sB_2"><span class="ex-n">2</span><div><div class="ex-name">TEST — HSPU Negative Time</div><div class="ex-note">1 négatif HSPU au maximum. Objectif : 8–10 secondes minimum.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : 3 tentatives × max</span><span class="tag t-sets only-20">20 MIN : 3 tentatives × max</span><span class="tag t-prog">Objectif : 8–10s</span></div></div><span class="badge b-main">TEST STRICT</span></div>
+              <div class="ex" data-rest="0" data-exid="h_p3sB_3"><span class="ex-n">3</span><div><div class="ex-name">TEST — Handstand Hold Max</div><div class="ex-note">Objectif : 45s+. Si atteint → prêt pour le programme HSPU Intermédiaire.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : 1×max</span><span class="tag t-sets only-20">20 MIN : 1×max</span><span class="tag t-prog">Objectif : 45s+</span></div></div><span class="badge b-acc">TEST</span></div>
             </div>
             <div class="tip">5 kipping HSPU + négatifs 8s + HS hold 45s → tu as les prérequis pour le programme HSPU Intermédiaire.</div>
           </div>
@@ -567,8 +872,8 @@ footer strong{color:var(--orange)}
           <div class="shead"><div class="sh-left"><div class="sh-title">Séance A — Scapula + pulls contrôlés</div><div class="sh-sub">Focus : activation épaules et dos</div></div><div class="sh-right"><span class="timer-tag">15 min</span><span class="timer-tag t20">20 min</span><button class="collapse-btn" onclick="toggleCollapse('pu-p1sA-body',null,this)">▾</button></div></div>
           <div id="pu-p1sA-body">
             <div class="ex-list">
-              <div class="ex main" data-rest="75" data-exid="pu_p1sA_1"><span class="ex-n">1</span><div><div class="ex-name">Assisted Pull-Up / Negative</div><div class="ex-note">Priorité à la qualité du départ et à l'extension complète du coude.</div><div class="ex-tags"><span class="tag t-sets">3×5–6</span><span class="tag t-tempo">Tempo 2-1-2</span></div></div><span class="badge b-main">PRINCIPAL</span></div>
-              <div class="ex" data-rest="60" data-exid="pu_p1sA_2"><span class="ex-n">2</span><div><div class="ex-name">Scapular Pull-Up</div><div class="ex-note">Épaules en bas, omoplates qui se décollent sans flexion du coude au départ.</div><div class="ex-tags"><span class="tag t-sets">3×8</span></div></div><span class="badge b-acc">SCAPULA</span></div>
+              <div class="ex main" data-rest="75" data-exid="pu_p1sA_1"><span class="ex-n">1</span><div><div class="ex-name">Assisted Pull-Up / Negative</div><div class="ex-note">Priorité à la qualité du départ et à l'extension complète du coude.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : 3×5–6</span><span class="tag t-sets only-20">20 MIN : 4×5–6</span><span class="tag t-tempo">Tempo 2-1-2</span></div></div><span class="badge b-main">PRINCIPAL</span></div>
+              <div class="ex" data-rest="60" data-exid="pu_p1sA_2"><span class="ex-n">2</span><div><div class="ex-name">Scapular Pull-Up</div><div class="ex-note">Épaules en bas, omoplates qui se décollent sans flexion du coude au départ.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : 3×8</span><span class="tag t-sets only-20">20 MIN : 4×10</span></div></div><span class="badge b-acc">SCAPULA</span></div>
               <div class="ex only-20" data-rest="45" data-exid="pu_p1sA_3"><span class="ex-n">3</span><div><div class="ex-name">Face Pull</div><div class="ex-note">Rééducation du cou et stabilité scapulaire.</div><div class="ex-tags"><span class="tag t-sets">2×12</span><span class="tag t-20only">+5 min</span></div></div><span class="badge b-20">+20MIN</span></div>
             </div>
             <div class="tip">Sentir le bas du dos et les omoplates travailler sans solliciter les poignets ou coudes.</div>
@@ -578,8 +883,8 @@ footer strong{color:var(--orange)}
           <div class="shead"><div class="sh-left"><div class="sh-title">Séance B — Négatifs + isométries</div><div class="sh-sub">Contrôle de la descente</div></div><div class="sh-right"><span class="timer-tag">15 min</span><span class="timer-tag t20">20 min</span><button class="collapse-btn" onclick="toggleCollapse('pu-p1sB-body',null,this)">▾</button></div></div>
           <div id="pu-p1sB-body">
             <div class="ex-list">
-              <div class="ex main" data-rest="90" data-exid="pu_p1sB_1"><span class="ex-n">1</span><div><div class="ex-name">Strict Negative Pull-Up</div><div class="ex-note">Descente lente depuis le haut, sans rebond.</div><div class="ex-tags"><span class="tag t-sets">4×3–5</span><span class="tag t-tempo">4–6s descente</span></div></div><span class="badge b-main">PRINCIPAL</span></div>
-              <div class="ex" data-rest="45" data-exid="pu_p1sB_2"><span class="ex-n">2</span><div><div class="ex-name">Top-of-Bar Hold</div><div class="ex-note">10–20 secondes avec menton au-dessus de la barre.</div><div class="ex-tags"><span class="tag t-sets">3×10–20s</span></div></div><span class="badge b-acc">FORCE</span></div>
+              <div class="ex main" data-rest="90" data-exid="pu_p1sB_1"><span class="ex-n">1</span><div><div class="ex-name">Strict Negative Pull-Up</div><div class="ex-note">Descente lente depuis le haut, sans rebond.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : S1-2 4×3 · S3-4 4×4–5</span><span class="tag t-sets only-20">20 MIN : S1-2 5×3 · S3-4 5×4–5</span><span class="tag t-tempo">4–6s descente</span></div></div><span class="badge b-main">PRINCIPAL</span></div>
+              <div class="ex" data-rest="45" data-exid="pu_p1sB_2"><span class="ex-n">2</span><div><div class="ex-name">Top-of-Bar Hold</div><div class="ex-note">10–20 secondes avec menton au-dessus de la barre.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : 3×10–20s</span><span class="tag t-sets only-20">20 MIN : 4×10–20s</span></div></div><span class="badge b-acc">FORCE</span></div>
               <div class="ex only-20" data-rest="45" data-exid="pu_p1sB_3"><span class="ex-n">3</span><div><div class="ex-name">Rear Delt Fly</div><div class="ex-note">Complément pour le haut du dos.</div><div class="ex-tags"><span class="tag t-sets">2×12–15</span><span class="tag t-20only">+5 min</span></div></div><span class="badge b-20">+20MIN</span></div>
             </div>
           </div>
@@ -595,8 +900,8 @@ footer strong{color:var(--orange)}
           <div class="shead"><div class="sh-left"><div class="sh-title">Séance A — Tractions strictes + pauses</div><div class="sh-sub">Augmentation progressive de la densité</div></div><div class="sh-right"><span class="timer-tag">15 min</span><span class="timer-tag t20">20 min</span><button class="collapse-btn" onclick="toggleCollapse('pu-p2sA-body',null,this)">▾</button></div></div>
           <div id="pu-p2sA-body">
             <div class="ex-list">
-              <div class="ex main" data-rest="90" data-exid="pu_p2sA_1"><span class="ex-n">1</span><div><div class="ex-name">Strict Pull-Up (Light Assistance)</div><div class="ex-note">Assistance légère pour garder la forme parfaite.</div><div class="ex-tags"><span class="tag t-sets">4×4</span><span class="tag t-tempo">Tempo 3-1-1</span></div></div><span class="badge b-main">PRINCIPAL</span></div>
-              <div class="ex" data-rest="60" data-exid="pu_p2sA_2"><span class="ex-n">2</span><div><div class="ex-name">Pause Pull-Up</div><div class="ex-note">Pause 1–2 secondes au-dessus de la barre.</div><div class="ex-tags"><span class="tag t-sets">3×3</span></div></div><span class="badge b-acc">PAUSE</span></div>
+              <div class="ex main" data-rest="90" data-exid="pu_p2sA_1"><span class="ex-n">1</span><div><div class="ex-name">Strict Pull-Up (Light Assistance)</div><div class="ex-note">Assistance légère pour garder la forme parfaite.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : S5-6 4×4 · S7-8 4×5</span><span class="tag t-sets only-20">20 MIN : S5-6 5×4 · S7-8 5×5</span><span class="tag t-tempo">Tempo 3-1-1</span></div></div><span class="badge b-main">PRINCIPAL</span></div>
+              <div class="ex" data-rest="60" data-exid="pu_p2sA_2"><span class="ex-n">2</span><div><div class="ex-name">Pause Pull-Up</div><div class="ex-note">Pause 1–2 secondes au-dessus de la barre.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : 3×3</span><span class="tag t-sets only-20">20 MIN : 4×4</span></div></div><span class="badge b-acc">PAUSE</span></div>
               <div class="ex only-20" data-rest="45" data-exid="pu_p2sA_3"><span class="ex-n">3</span><div><div class="ex-name">Incline Row</div><div class="ex-note">Renforce le dos sans gêner l'apprentissage du strict.</div><div class="ex-tags"><span class="tag t-sets">3×10</span><span class="tag t-20only">+5 min</span></div></div><span class="badge b-20">+20MIN</span></div>
             </div>
           </div>
@@ -605,8 +910,8 @@ footer strong{color:var(--orange)}
           <div class="shead"><div class="sh-left"><div class="sh-title">Séance B — Volume + contrôle</div><div class="sh-sub">Répétitions avec qualité</div></div><div class="sh-right"><span class="timer-tag">15 min</span><span class="timer-tag t20">20 min</span><button class="collapse-btn" onclick="toggleCollapse('pu-p2sB-body',null,this)">▾</button></div></div>
           <div id="pu-p2sB-body">
             <div class="ex-list">
-              <div class="ex main" data-rest="75" data-exid="pu_p2sB_1"><span class="ex-n">1</span><div><div class="ex-name">Strict Pull-Up (Light Assistance)</div><div class="ex-note">Corps aligné, tête hors du plan de la barre.</div><div class="ex-tags"><span class="tag t-sets">4×3–4</span></div></div><span class="badge b-main">PRINCIPAL</span></div>
-              <div class="ex" data-rest="45" data-exid="pu_p2sB_2"><span class="ex-n">2</span><div><div class="ex-name">Scapular Pull-Up</div><div class="ex-note">Réactivation de la scapula pour garder la tension.</div><div class="ex-tags"><span class="tag t-sets">3×10</span></div></div><span class="badge b-acc">SCAPULA</span></div>
+              <div class="ex main" data-rest="75" data-exid="pu_p2sB_1"><span class="ex-n">1</span><div><div class="ex-name">Strict Pull-Up (Light Assistance)</div><div class="ex-note">Corps aligné, tête hors du plan de la barre.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : S5-6 4×3–4 · S7-8 4×4–5</span><span class="tag t-sets only-20">20 MIN : S5-6 5×3–4 · S7-8 5×4–5</span></div></div><span class="badge b-main">PRINCIPAL</span></div>
+              <div class="ex" data-rest="45" data-exid="pu_p2sB_2"><span class="ex-n">2</span><div><div class="ex-name">Scapular Pull-Up</div><div class="ex-note">Réactivation de la scapula pour garder la tension.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : 3×10</span><span class="tag t-sets only-20">20 MIN : 4×12</span></div></div><span class="badge b-acc">SCAPULA</span></div>
               <div class="ex only-20" data-rest="45" data-exid="pu_p2sB_3"><span class="ex-n">3</span><div><div class="ex-name">Reverse Bicep Curl</div><div class="ex-note">Prévention des déséquilibres bras/dos.</div><div class="ex-tags"><span class="tag t-sets">2×12–15</span><span class="tag t-20only">+5 min</span></div></div><span class="badge b-20">+20MIN</span></div>
             </div>
           </div>
@@ -622,8 +927,8 @@ footer strong{color:var(--orange)}
           <div class="shead"><div class="sh-left"><div class="sh-title">Séance A — Work + intensité</div><div class="sh-sub">Proche du niveau voulu</div></div><div class="sh-right"><span class="timer-tag">15 min</span><span class="timer-tag t20">20 min</span><button class="collapse-btn" onclick="toggleCollapse('pu-p3sA-body',null,this)">▾</button></div></div>
           <div id="pu-p3sA-body">
             <div class="ex-list">
-              <div class="ex main" data-rest="90" data-exid="pu_p3sA_1"><span class="ex-n">1</span><div><div class="ex-name">Strict Pull-Up</div><div class="ex-note">Plusieurs reps propres, sans balancement.</div><div class="ex-tags"><span class="tag t-sets">4×1–3</span></div></div><span class="badge b-main">PRINCIPAL</span></div>
-              <div class="ex" data-rest="60" data-exid="pu_p3sA_2"><span class="ex-n">2</span><div><div class="ex-name">Pull-Up Negative</div><div class="ex-note">Contrôle au sommet avec descente lente.</div><div class="ex-tags"><span class="tag t-sets">3×3</span></div></div><span class="badge b-acc">CONTRÔLE</span></div>
+              <div class="ex main" data-rest="90" data-exid="pu_p3sA_1"><span class="ex-n">1</span><div><div class="ex-name">Strict Pull-Up</div><div class="ex-note">Plusieurs reps propres, sans balancement.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : S9-10 4×1–3 · S11-12 4×2–4</span><span class="tag t-sets only-20">20 MIN : S9-10 5×1–3 · S11-12 5×2–4</span></div></div><span class="badge b-main">PRINCIPAL</span></div>
+              <div class="ex" data-rest="60" data-exid="pu_p3sA_2"><span class="ex-n">2</span><div><div class="ex-name">Pull-Up Negative</div><div class="ex-note">Contrôle au sommet avec descente lente.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : 3×3 @ 5s</span><span class="tag t-sets only-20">20 MIN : 4×3 @ 5s</span></div></div><span class="badge b-acc">CONTRÔLE</span></div>
               <div class="ex only-20" data-rest="45" data-exid="pu_p3sA_3"><span class="ex-n">3</span><div><div class="ex-name">Close-Grip Row</div><div class="ex-note">Renfort du dos pour la stabilité.</div><div class="ex-tags"><span class="tag t-sets">2×12</span><span class="tag t-20only">+5 min</span></div></div><span class="badge b-20">+20MIN</span></div>
             </div>
             <div class="tip">Si le strict est trop difficile, réduis avec une assistance légère plutôt que de forcer la technique.</div>
@@ -633,8 +938,8 @@ footer strong{color:var(--orange)}
           <div class="shead"><div class="sh-left"><div class="sh-title">Séance B — Test du niveau</div><div class="sh-sub">Évaluation de la progression</div></div><div class="sh-right"><span class="timer-tag">15 min</span><span class="timer-tag t20">20 min</span><button class="collapse-btn" onclick="toggleCollapse('pu-p3sB-body',null,this)">▾</button></div></div>
           <div id="pu-p3sB-body">
             <div class="ex-list">
-              <div class="ex main" data-rest="60" data-exid="pu_p3sB_1"><span class="ex-n">1</span><div><div class="ex-name">TEST — Strict Pull-Up Max</div><div class="ex-note">1–3 essais propres, sans balancement et avec amplitude complète.</div><div class="ex-tags"><span class="tag t-sets">1 × TEST</span></div></div><span class="badge b-main">TEST</span></div>
-              <div class="ex" data-rest="45" data-exid="pu_p3sB_2"><span class="ex-n">2</span><div><div class="ex-name">Active Recovery</div><div class="ex-note">Enchaîner sans pause · <strong>Dead Hang passif</strong> 2×20s (décompression épaule, laisser peser le corps) → <strong>Pendulum Shoulder Swings</strong> 10 reps/sens (bras relâché, cercles progressifs) → <strong>Lat Stretch à la porte</strong> 30s/côté (bras en haut, s'asseoir en arrière) → <strong>Wrist Flexor Stretch</strong> 30s/côté (bras tendu, palm vers le haut) → <strong>Pec Doorway Stretch</strong> 30s (avant-bras sur chambranle, rotation du corps). Objectif : décompresser les épaules, ouvrir la chaîne antérieure, récupérer les avant-bras.</div><div class="ex-tags"><span class="tag t-sets">5 min — enchaîné</span></div></div><span class="badge b-acc">RÉCUP.</span></div>
+              <div class="ex main" data-rest="60" data-exid="pu_p3sB_1"><span class="ex-n">1</span><div><div class="ex-name">TEST — Strict Pull-Up Max</div><div class="ex-note">1–3 essais propres, sans balancement et avec amplitude complète.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : 1×TEST</span><span class="tag t-sets only-20">20 MIN : 1×TEST</span></div></div><span class="badge b-main">TEST</span></div>
+              <div class="ex" data-rest="45" data-exid="pu_p3sB_2"><span class="ex-n">2</span><div><div class="ex-name">Active Recovery</div><div class="ex-note">Enchaîner sans pause · <strong>Dead Hang passif</strong> 2×20s (décompression épaule, laisser peser le corps) → <strong>Pendulum Shoulder Swings</strong> 10 reps/sens (bras relâché, cercles progressifs) → <strong>Lat Stretch à la porte</strong> 30s/côté (bras en haut, s'asseoir en arrière) → <strong>Wrist Flexor Stretch</strong> 30s/côté (bras tendu, palm vers le haut) → <strong>Pec Doorway Stretch</strong> 30s (avant-bras sur chambranle, rotation du corps). Objectif : décompresser les épaules, ouvrir la chaîne antérieure, récupérer les avant-bras.</div><div class="ex-tags"><span class="tag t-sets only-15">15 MIN : 5 min</span><span class="tag t-sets only-20">20 MIN : 5 min</span></div></div><span class="badge b-acc">RÉCUP.</span></div>
             </div>
           </div>
         </div>
@@ -2201,6 +2506,185 @@ document.addEventListener('DOMContentLoaded',()=>{
     if(panel){injectInteractives(panel);injectSessionNotes(panel);injectAccessories(panel);injectInteractives(panel);}
   });
 });
+
+/* ══════════════════════════════════════════
+   ONBOARDING LOGIC
+══════════════════════════════════════════ */
+(function(){
+  var D = {step:1,total:6,sexe:null,prenom:'',nom:'',age:25,prog:null,dur:null,mat:[],blessure:''};
+
+  function init(){
+    var saved = localStorage.getItem('singly_profile');
+    if(!saved){
+      document.getElementById('onboarding').classList.remove('ob-hidden');
+    } else {
+      showProfileBtn(JSON.parse(saved));
+    }
+  }
+
+  window.obStart = function(){
+    document.getElementById('ob-welcome').style.display='none';
+    document.getElementById('ob-steps').style.display='block';
+    document.getElementById('ob-footer').style.display='flex';
+    obProgress();
+  };
+
+  function obProgress(){
+    var pct = (D.step/D.total)*100;
+    document.getElementById('ob-prog-fill').style.width = pct+'%';
+    document.getElementById('ob-step-lbl').textContent = 'Étape '+D.step+' / '+D.total;
+    document.getElementById('ob-back-btn').style.display = D.step>1?'block':'none';
+    document.getElementById('ob-next-btn').textContent = D.step===D.total ? 'Commencer le programme →' : 'Suivant →';
+    obValidate();
+  }
+
+  function obValidate(){
+    var ok = false;
+    if(D.step===1) ok = !!(D.sexe && D.prenom.trim() && D.nom.trim());
+    else if(D.step===2) ok = true;
+    else if(D.step===3) ok = !!D.prog;
+    else if(D.step===4) ok = !!D.dur;
+    else if(D.step===5) ok = D.mat.length>0;
+    else if(D.step===6) ok = true;
+    document.getElementById('ob-next-btn').disabled = !ok;
+  }
+
+  window.obNext = function(){
+    if(D.step < D.total){
+      document.getElementById('ob-s'+D.step).classList.remove('ob-active');
+      D.step++;
+      document.getElementById('ob-s'+D.step).classList.add('ob-active');
+      // scroll top
+      document.getElementById('ob-steps').scrollTop=0;
+      window.scrollTo(0,0);
+      obProgress();
+    } else {
+      obFinish();
+    }
+  };
+
+  window.obBack = function(){
+    if(D.step>1){
+      document.getElementById('ob-s'+D.step).classList.remove('ob-active');
+      D.step--;
+      document.getElementById('ob-s'+D.step).classList.add('ob-active');
+      window.scrollTo(0,0);
+      obProgress();
+    }
+  };
+
+  window.obSexe = function(el){
+    document.querySelectorAll('.ob-sexe-card').forEach(function(c){c.classList.remove('ob-sel');});
+    el.classList.add('ob-sel');
+    D.sexe = el.dataset.v;
+    obChk1();
+  };
+
+  window.obChk1 = function(){
+    D.prenom = document.getElementById('ob-prenom').value;
+    D.nom = document.getElementById('ob-nom').value;
+    obValidate();
+  };
+
+  window.obAge = function(v){
+    D.age = parseInt(v);
+    document.getElementById('ob-age-disp').textContent = v;
+  };
+
+  window.obCard = function(el, group){
+    el.closest('.ob-cards').querySelectorAll('.ob-card').forEach(function(c){c.classList.remove('ob-sel');});
+    el.classList.add('ob-sel');
+    if(group==='prog') D.prog = el.dataset.v;
+    else if(group==='dur') D.dur = parseInt(el.dataset.v);
+    obValidate();
+  };
+
+  window.obMat = function(el){
+    el.classList.toggle('ob-sel');
+    var v = el.dataset.v;
+    var i = D.mat.indexOf(v);
+    if(i===-1) D.mat.push(v); else D.mat.splice(i,1);
+    obValidate();
+  };
+
+  window.obToggleNoBl = function(){
+    var nb = document.getElementById('ob-no-bl');
+    var ta = document.getElementById('ob-bl-text');
+    nb.classList.toggle('ob-sel');
+    if(nb.classList.contains('ob-sel')){
+      ta.value=''; ta.disabled=true; ta.style.opacity='.35';
+    } else {
+      ta.disabled=false; ta.style.opacity='1'; ta.focus();
+    }
+    D.blessure = '';
+    obValidate();
+  };
+
+  window.obBlInput = function(){
+    var ta = document.getElementById('ob-bl-text');
+    if(ta.value.trim()){
+      document.getElementById('ob-no-bl').classList.remove('ob-sel');
+    }
+    D.blessure = ta.value.trim();
+  };
+
+  function obFinish(){
+    var nb = document.getElementById('ob-no-bl');
+    D.blessure = nb.classList.contains('ob-sel') ? '' : document.getElementById('ob-bl-text').value.trim();
+    D.completed = true;
+    localStorage.setItem('singly_profile', JSON.stringify(D));
+
+    // Hide overlay
+    var ov = document.getElementById('onboarding');
+    ov.style.opacity='0';
+    ov.style.transition='opacity .4s';
+    setTimeout(function(){
+      ov.classList.add('ob-hidden');
+      ov.style.opacity='';
+      ov.style.transition='';
+    }, 400);
+
+    // Navigate to program
+    setTimeout(function(){
+      showTab(D.prog);
+      setTimeout(function(){
+        var panel = document.getElementById('panel-'+D.prog);
+        if(!panel) return;
+        var btns = panel.querySelectorAll('.dur-btn');
+        for(var i=0;i<btns.length;i++){
+          var oc = btns[i].getAttribute('onclick')||'';
+          if(oc.indexOf('setModeInPanel('+D.dur+',')!==-1){
+            btns[i].click(); break;
+          }
+        }
+      }, 100);
+    }, 450);
+
+    showProfileBtn(D);
+  }
+
+  function showProfileBtn(d){
+    if(!d || !d.prenom) return;
+    var hdr = document.querySelector('.header-right');
+    if(!hdr) return;
+    if(document.getElementById('ob-profile-btn')) return; // already added
+    var btn = document.createElement('button');
+    btn.id='ob-profile-btn';
+    btn.className='ob-profile-btn';
+    var icon = d.sexe==='femme'?'👩':'👨';
+    btn.innerHTML = icon+' '+d.prenom+' <span style="opacity:.5">·</span> Modifier';
+    btn.onclick = function(){
+      if(confirm('Réinitialiser le profil et refaire le questionnaire ?')){
+        localStorage.removeItem('singly_profile');
+        location.reload();
+      }
+    };
+    hdr.appendChild(btn);
+  }
+
+  init();
+})();
+
 </script>
 
 <footer>
